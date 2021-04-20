@@ -1,0 +1,186 @@
+<resources>
+    <string name="share">Share</string>
+    <string name="empty"> </string>
+
+    <string name="empty_tips_null">暂无数据</string>
+    <string name="empty_tips_netword">请检查你的网络连接</string>
+    <string name="empty_tips_btn">重试</string>
+    <string name="no_more_data">没有更多了</string>
+    <string name="activity_empty">Activity(empty)</string>
+    <string name="activity_placeholder">Activity(placeholder)</string>
+    <string name="activity_with_convertor">Activity with Convertor</string>
+    <string name="single_fragment_custom">single Fragment(custom)</string>
+    <string name="multiple_fragment">multiple Fragment</string>
+    <string name="multiple_fragment_viewpager">multiple Fragment+ViewPager</string>
+    <string name="view_timeout">View(timeout)</string>
+    <string name="animat_callback">Animat Callback</string>
+    <string name="keep_title_bar_in_fragment">keep title bar in Fragment</string>
+    <string name="loadsir">LoadSir</string>
+    <string name="success">Success</string>
+    <string name="keep_title_bar">keep title bar</string>
+    <string name="fine_no_data">这里暂时什么都没有～</string>
+    <string name="click_me_to_retry">点我重试!</string>
+    <string name="login_or_register">点我注册/登录!</string>
+    <string name="best_practices">best practices</string>
+    <string name="default_loadsir_callback">default LoadSir Callback</string>
+    <string name="keep_title_bar_in_activity">keep title bar in Activity</string>
+
+    <!--维护CC 模块通信调用的名称与ActionName-->
+    <!--Scan  module-->
+    <string name="Scan">Scan</string>
+    <string name="Scan_ActionName_getHomeFragment">getHomeFragment</string>
+    <string name="Scan_ActionName_getPublishTaskCenterFragment">getPublishTaskCenterFragment</string>
+    <string name="Scan_ActionName_getTaskCenterFragment">getTaskCenterFragment</string>
+    <string name="Scan_ActionName_getMapviewFragment">getMapviewFragment</string>
+    <string name="Component_parameter_fragment">fragment</string>
+    <string name="Component_parameter_activity">Activity</string>
+
+
+    <!--Locker  module-->
+    <string name="Locker">Locker</string>
+    <string name="Locker_ActionName_getMainHomeFragment">getMainHomeFragment</string>
+
+    <!--UserCenter  module-->
+    <string name="UserCenter">UserCenter</string>
+    <string name="UserCenter_ActionName_getMyCenterFragment">getMyCenterFragment</string>
+
+
+
+
+
+    <string name="message_setting_comeback">The user comes back from the settings page.</string>
+
+    <string name="setting">设置</string>
+    <!--    <string name="setting">Setting</string>-->
+    <string name="resume">重新授权</string>
+  <!--  <string name="resume">Resume</string>-->
+    <string name="cancel">取消</string>
+    <!--    <string name="cancel">Cancel</string>-->
+    <string name="ok">@android:string/ok</string>
+
+    <string name="successfully">Successful</string>
+    <string name="failure">权限被拒绝</string>
+
+    <string name="permission_camera">Camera</string>
+    <string name="permission_contact">Contact</string>
+    <string name="permission_location">Location</string>
+
+    <string name="permission_calendar">Calendar</string>
+    <string name="permission_microphone">Microphone</string>
+    <string name="permission_storage">Storage</string>
+
+    <string name="permission_phone">Phone</string>
+    <string name="permission_call_log">Call Log</string>
+    <string name="permission_activity_recognition">Activity Recognition</string>
+    <string name="permission_sensors">Sensors</string>
+    <string name="permission_sms">SMS</string>
+    <string name="permission_setting">Permission Setting</string>
+
+    <string name="permission_notification">Notification</string>
+    <string name="permission_notification_listener">Notification Listener</string>
+
+    <string name="permission_install">Install Apk</string>
+    <string name="permission_overlay">AlertWindow</string>
+
+    <string name="permission_write_setting">Write System Setting</string>
+
+<!--    <string name="title_dialog">Tips</string>-->
+    <string name="title_dialog">提示</string>
+    <string name="over_time_dialog_title">提示</string>
+    <string name="dialog_intercept_title">通缉件</string>
+    <string name="show_personal_infor_title">个人信息保护指引</string>
+
+    <string name="message_permission_rationale">授予下列权限以继续程序:\n\n%1$s</string>
+    <!--    <string name="message_permission_rationale">Grant the following permissions to continue the program:\n\n%1$s</string>-->
+<!--    <string name="message_permission_always_failed">Please give us permission in the settings:\n\n%1$s</string>-->
+    <string name="message_permission_always_failed">请在设置界面授予下列权限以继续程序:\n\n%1$s</string>
+
+    <string name="message_notification_rationale">Your device does not allow us to pop up notifications.</string>
+    <string name="message_notification_listener_rationale">Your device does not allow us to access notifications.</string>
+
+    <string name="message_install_failed">Your device is not allowed us to install apps.</string>
+
+    <string name="message_overlay_failed">Your device is not allowed us to draw on other applications.</string>
+
+    <string name="message_write_setting_failed">Your device is not allowed us to modify the system settings.</string>
+
+    <string name="message_error_storage">Please check the external storage device.</string>
+    <string name="message_error_storeage_inavailable">External storage device is not available.</string>
+
+    <string name="message_error_save_failed">Save failed, please try again.</string>
+
+
+<!--    相机-->
+    <string name="open_camera">拍照</string>
+    <string name="select_from_album">从相机选择</string>
+
+
+    <string name="privacy_content1">在您使用APP过程中，我们可能申请一些涉及隐私的权限，包括但不限于以下权限：\n
+
+1、可能会申请摄像头权限和相册权限用于面单识别，底单存储等
+
+\n2、为了提升用户体验，可能会申请定位权限，用于精准分配订单等
+
+具体完整协议您可以阅读《</string>
+    <string name="privacy_content2">隐私政策</string>
+    <string name="privacy_content3">与</string>
+    <string name="privacy_content4">服务协议</string>
+    <string name="privacy_content5"> 》，点击下面“我知道了”，即表示您已阅读并同意我们的服务。我们高度重视您的隐私并严格遵守本条款</string>
+
+
+    <string name="delivery_area_item_note">请输入派件区域</string>
+
+
+    <!--按钮显示-->
+    <string name="btn_confirm">确认</string>
+    <string name="btn_sure">确定</string>
+    <string name="btn_scan">扫描</string>
+    <string name="btn_cancle">取消</string>
+    <string name="btn_upload">上传</string>
+    <string name="btn_upload_all">全部上传</string>
+    <string name="btn_delete">删除</string>
+    <string name="btn_login">登录</string>
+    <string name="btn_send">发送</string>
+    <string name="btn_delivery_notice">派件通知</string>
+    <string name="btn_update_express">修改品牌</string>
+    <string name="btn_update_station">修改驿站</string>
+    <string name="btn_submit">提交</string>
+
+
+    <string name="user_setting_update_pwd_new_et_hint">请输入新密码（6~20位数字加字母）</string>
+    <string name="user_setting_update_pwd_new_again_hint">请再次输入新密码</string>
+
+
+
+    <!--巴枪设置-->
+    <string name="spear_manager_account">巴枪账号：</string>
+    <string name="spear_manager_spear_pwd">巴枪密码：</string>
+    <string name="spear_manager_phone">手机号码：</string>
+    <string name="spear_manager_emp_name">业务员姓名：</string>
+    <string name="spear_manager_emp_code">业务员工号：</string>
+    <string name="spear_manager_phone_pwd">手机密码：</string>
+    <string name="spear_manager_three_code">三段码：</string>
+    <string name="spear_manager_device_code">设备号：</string>
+
+
+    <!--bq-->
+
+    <string name="standard_template">【妈妈驿站】 您的<快递品牌>中通</快递品牌>快递<快递单号>12345678</快递单号>已到达<地址>软件新城南门</地址>，请速来取件，联系电话<电话号码>18165206694</电话号码>，谢谢。</string>
+    <!--<string name="dispatch_template">【易拣通】 您的<快递品牌>中通</快递品牌>快递<快递单号>12345678</快递单号>已到达<地址>软件新城南门</地址>，请您尽快取件，谢谢，派件员电话<电话号码>18165206694</电话号码>。</string>-->
+    <string name="template_Content_Tag">【易拣通】</string>
+    <string name="dispatch_template">您的<快递品牌>中通</快递品牌>快递<快递单号>12345678</快递单号>已到达<地址>软件新城南门</地址>，请您尽快取件，谢谢，派件员电话<电话号码>18165206694</电话号码>。</string>
+    <string name="add_custom_address">请添加自定义地址内容</string>
+    <string name="address_tips">长按标签可进行删除操作</string>
+
+    <string name="add_tags">添加标签</string>
+
+    <string name="send_all">全部发送</string>
+    <string name="empty_template">暂无派件模板，点击底部按钮添加模板</string>
+
+    <string name="developing_note">正在加紧开发，敬请期待！</string>
+    <string name="please_select_data_first_note">请先勾选数据！</string>
+
+
+    <!--bq-->
+
+</resources>

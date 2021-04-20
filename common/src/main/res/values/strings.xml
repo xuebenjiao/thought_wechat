@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">快递纵横</string>
+    <string name="share">Share</string>
+    <string name="scan_list_item_gekou_title">格口号：6012</string>
+    <string name="sure">确认</string>
+    <string name="cancel">取消</string>
+    <string name="delete">删除</string>
+    <string name="check_all">全选</string>
+    <string name="scannning_pistol_name">巴枪扫描</string>
+    <string name="scannning_phone_name">手机扫描</string>
+    <string name="scannning_cancle_btn_name">取消</string>
+    <string name="ble_scan_note">正在搜索蓝牙设备……</string>
+    <string name="scan_car_sign_node">请输入圆通车签号</string>
+    <string name="scan_car_sign_tip">若扫描除圆通外的其他快递，请直接跳过</string>
+    <string name="scan_car_sign_cancle_btn">跳过</string>
+
+    <string name="close_scan_tip"> 您确定要禁用吗？</string>
+
+
+    <string name="dispatch_notice_not_support_send_message_note">所选数据赞不支持发送派件通知！</string>
+    <string name="sign_notice_not_support_send_message_note">所选数据暂不支持发送签收通知！</string>
+
+
+    <!--指派切换-->
+    <string name="dialog_note_before_jump">还有未上传的运单，确定要切换派件员吗？</string>
+    <!--下一站切换-->
+    <string name="dialog_note_before_jump_nextstation" translatable="false">还有未上传的运单，确定要切换下一站吗？</string>
+    <!--签收人切换-->
+    <string name="dialog_note_before_change_signer">还有未上传的运单，确定要切换签收人吗？</string>
+    <string name="dialog_note_before_change_station">还有未上传的运单，确定要切换驿站吗？</string>
+
+    <!--相机扫描界面-->
+    <string name="camera_dialog_waybill_title">运单号</string>
+    <string name="camera_dialog_waybill_et_hint">请输入运单号</string>
+    <string name="camera_dialog_phone_title">手机号</string>
+    <string name="camera_dialog_phone_et_hint">请输入手机号</string>
+    <string name="update_express_btn_title">修改品牌</string>
+
+    <string name="input_note">手动输入</string>
+    <string name="input_mail_no_note">手动输入或批量粘贴收件人运单号，并以“，”或“/”分割，最大限度100个运单号</string>
+
+
+    <string name="no_apponit_permission_note">您暂无指派的权限！</string>
+
+    <!--按钮显示-->
+
+
+    <!--我的-->
+    <string name="user_center_my_outlets" translatable="false">我的网点</string>
+    <string name="user_center_invitation_outlets" translatable="false">邀请的网点</string>
+    <string name="user_center_my_station" translatable="false">我的驿站</string>
+    <string name="user_center_invitation_station" translatable="false">邀请的驿站</string>
+
+    <!--关于我们-->
+    <string name="user_center_about_us_agreement" translatable="false">用户协议</string>
+    <string name="user_center_about_us_private_agreement" translatable="false">隐私协议</string>
+    <string name="user_center_about_us_app_update" translatable="false">检测版本</string>
+
+
+
+</resources>

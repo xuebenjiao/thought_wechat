@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.xbj.common.views.listItem.ItemViewWithLeftDelViewModel" />
+        <variable
+            name="pictureTitleView"
+            type="com.xbj.common.views.listItem.ItemViewWithLeftDel" />
+
+        <import type="android.view.View" />
+        <import type="android.text.TextUtils" />
+        <import type="androidx.databinding.ObservableField" />
+    </data>
+    <com.nalan.swipeitem.recyclerview.SwipeItemLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+        <LinearLayout
+            android:paddingTop="@dimen/dp_14"
+            android:id="@+id/parent_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:paddingLeft="@dimen/dp_16"
+                android:paddingRight="@dimen/dp_16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_marginLeft="@dimen/dp_8"
+                    android:id="@+id/item_image"
+                    android:layout_width="@dimen/dp_34"
+                    android:layout_height="@dimen/dp_34"
+                    android:layout_centerVertical="true"
+                    android:scaleType="fitXY"
+                    android:src="@{viewModel.drawable}" />
+                <!--单号-->
+                <LinearLayout
+                    android:layout_centerInParent="true"
+                    android:layout_toRightOf="@+id/item_image"
+                    android:layout_width="wrap_content"
+                    android:id="@+id/waybill_no_layout"
+                    android:layout_marginLeft="@dimen/dp_8"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/item_file_name"
+                        android:layout_width="wrap_content"
+                        android:clickable="true"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center_vertical"
+                        android:maxLines="1"
+                        android:text="@{viewModel.expressName}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_14"
+                        android:textStyle="bold"
+                        />
+                    <com.yto.base.customview.CustomFontTextView
+                        android:layout_marginLeft="@dimen/dp_12"
+                        android:id="@+id/item_express_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left|center_vertical"
+                        android:text="@{viewModel.scanCode}"
+                        android:textColor="@color/black1"
+                        android:textSize="@dimen/sp_14"
+                        android:textStyle="bold"
+                        />
+                </LinearLayout>
+            </RelativeLayout>
+            <!--姓名、电话、短信发送状态-->
+            <LinearLayout
+                android:paddingLeft="@dimen/dp_16"
+                android:paddingRight="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_7"
+                android:layout_marginLeft="@dimen/dp_8"
+                android:id="@+id/date_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:textSize="@dimen/sp_14"
+                        android:textColor="@color/color_999FA6"
+                        android:text="姓名"
+                        android:visibility="@{ TextUtils.isEmpty(viewModel.receiveName) ? View.GONE:View.VISIBLE}"
+                        android:layout_height="wrap_content"
+                        >
+                    </TextView>
+                    <TextView
+                        android:layout_marginRight="@dimen/dp_12"
+                        android:layout_marginLeft="@dimen/dp_12"
+                        android:gravity="center|left"
+                        android:layout_width="@dimen/dp_96"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:textSize="@dimen/sp_14"
+                        android:textColor="@color/black"
+                        android:text="@{viewModel.receiveName}"
+                        android:visibility="@{ TextUtils.isEmpty(viewModel.receiveName) ? View.GONE:View.VISIBLE}"
+                        android:layout_height="wrap_content"
+                        >
+                    </TextView>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/phone_layout"
+                    android:onClick="@{pictureTitleView.onClick}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:textSize="@dimen/sp_14"
+                        android:textColor="@color/color_999FA6"
+                        android:text="电话"
+                        android:layout_height="wrap_content"
+                        >
+                        <!--    android:visibility="@{ TextUtils.isEmpty(viewModel.receivePhone) ? View.GONE:View.VISIBLE}"-->
+                    </TextView>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_marginLeft="@dimen/dp_12"
+                        android:layout_width="wrap_content"
+                        android:textSize="@dimen/sp_14"
+                        android:textColor="@color/black"
+                        android:text="@{viewModel.receivePhone}"
+                        android:visibility="@{ TextUtils.isEmpty(viewModel.receivePhone) ? View.GONE:View.VISIBLE}"
+                        android:layout_height="wrap_content">
+                    </TextView>
+                    <ImageView
+                        android:layout_marginLeft="@dimen/dp_12"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:src="@drawable/phone_edit"
+                        android:layout_height="match_parent">
+                    </ImageView>
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:paddingLeft="@dimen/dp_16"
+                android:paddingRight="@dimen/dp_16"
+                android:layout_marginLeft="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_12"
+                    android:layout_marginRight="@dimen/dp_12"
+                    android:gravity="center"
+                    android:text="@{viewModel.channelOrderType}"
+                    android:textColor="@color/color_FF6A00"
+                    android:textSize="@dimen/sp_12"
+                    android:visibility="@{ TextUtils.isEmpty(viewModel.channelOrderType) ? View.GONE:View.VISIBLE}"></TextView>
+                <TextView
+                    android:visibility="@{ TextUtils.isEmpty(viewModel.msgStatus) ? View.GONE:View.VISIBLE}"
+                    android:id="@+id/msg_status_tv"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:textSize="@dimen/sp_12"
+                    android:textColor="@color/color_FF3428"
+                    android:text="@{viewModel.msgStatus}"
+                    android:layout_height="wrap_content">
+                </TextView>
+            </LinearLayout>
+            <View
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_alignParentBottom="true"
+                style="@style/ViewLineHorizontalOnePx"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <Button
+                android:id="@+id/delete"
+                android:text="删除"
+                android:onClick="@{pictureTitleView::btnDel}"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                android:background="@drawable/btn_delete"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+    </com.nalan.swipeitem.recyclerview.SwipeItemLayout>
+
+</layout>

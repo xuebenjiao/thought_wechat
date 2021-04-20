@@ -1,0 +1,16 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.xbj.base" >
+
+  <!--  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />-->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <!--RxPermisssion-->
+  <uses-permission android:name="android.permission.READ_CALENDAR" />
+  <application>
+    <service
+        android:name="com.hprt.m300lib.BluetoothLeService"
+        android:enabled="true" />
+
+  </application>
+</manifest>

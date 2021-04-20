@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="pageEntity"
+            type="com.xbj.common.views.listItem.TaskCenterItemViewModel" />
+        <variable
+            name="eventHandler"
+            type="com.xbj.common.views.listItem.TaskCenterItemView" />
+        <import type="android.view.View" />
+        <import type="android.text.TextUtils" />
+        <import type="androidx.databinding.ObservableField" />
+    </data>
+    <LinearLayout
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:paddingLeft="@dimen/dp_6"
+        android:paddingRight="@dimen/dp_6"
+        android:paddingBottom="@dimen/dp_10"
+        android:orientation="vertical"
+        android:background="@drawable/bg_white_border_radius4_shape"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_marginBottom="@dimen/dp_7"
+            android:background="@color/white"
+            android:gravity="center"
+            android:layout_height="@dimen/dp_40"
+            >
+            <ImageView
+                android:id="@+id/item_image"
+                android:layout_gravity="center"
+                android:layout_width="@dimen/dp_20"
+                android:layout_height="@dimen/dp_20"
+                android:src="@{pageEntity.drawable}"
+                />
+            <!--            android:src="@{viewModel.drawable}"-->
+            <TextView
+                android:layout_width="@dimen/dp_0"
+                android:layout_marginLeft="@dimen/dp_6"
+                android:layout_weight="1"
+                android:gravity="center|left"
+                android:textColor="@color/color_333333"
+                android:textSize="@dimen/sp_15"
+                android:text="@{pageEntity.taskName}"
+                android:layout_height="match_parent">
+            </TextView>
+            <Button
+                android:layout_gravity="center|right"
+                android:layout_width="wrap_content"
+                android:textColor="@color/white"
+                android:onClick="@{eventHandler::goToFinishTask}"
+                android:background="@{pageEntity.itemTypeFlag?@drawable/task_center_item_station_btn_bg:@drawable/task_center_item_btn_bg}"
+                android:text="去完成任务"
+                android:layout_height="@dimen/dp_38">
+
+            </Button>
+
+        </LinearLayout>
+        <View
+            style="@style/ViewLineHorizontalOnePx"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:paddingLeft="@dimen/dp_6"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_marginTop="@dimen/dp_6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textSize="@dimen/sp_14"
+                    android:textColor="@color/color_666666"
+                    android:text="@{pageEntity.orgTitle}"
+                    android:layout_height="wrap_content">
+                </TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_6"
+                    android:textSize="@dimen/sp_14"
+                    android:textColor="@color/color_333333"
+                    android:text="@{pageEntity.orgName}"
+                    android:layout_height="wrap_content">
+                </TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="@dimen/dp_6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textSize="@dimen/sp_14"
+                    android:textColor="@color/color_666666"
+                    android:text="创建时间:"
+                    android:layout_height="wrap_content">
+                </TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_6"
+                    android:text="@{pageEntity.taskDate}"
+                    android:textSize="@dimen/sp_14"
+                    android:textColor="@color/color_333333"
+                    android:layout_height="wrap_content">
+                </TextView>
+            </LinearLayout>
+
+            <com.daimajia.numberprogressbar.NumberProgressBar
+                android:id="@+id/number_progress"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_width="match_parent"
+                style="@style/NumberProgressBar_Default"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

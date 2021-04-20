@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name">快递纵横</string>
+    <string name="network_request_failed">网络请求失败</string>
+    <string name="menu_home">首页</string>
+    <string name="menu_outlets">网点</string>
+    <string name="menu_station">驿站</string>
+
+    <string name="menu_cabin">驾驶舱</string>
+    <string name="menu_account">我的</string>
+    <string name="login">登录</string>
+    <string name="hint_password">密码</string>
+    <string name="login_btn_text">登录</string>
+    <string name="login_btn_next">下一步</string>
+    <string name="login_title">欢迎登录易拣通</string>
+    <string name="forget_password">忘记密码</string>
+
+    <!--注册-->
+    <string name="register_invitation_hint">请输入您的邀请码</string>
+    <string name="register_phone_hint">请输入手机号</string>
+    <string name="register_verification_code_hint">请输入您的验证码</string>
+    <string name="register_confirmpwd_hint">请设置新密码</string>
+    <string name="register_confirm_new_pwd_hint">请确定新密码</string>
+    <string name="register_rbtn_text">记住密码</string>
+    <string name="register_get_back_pwd">找回密码</string>
+    <string name="register_btn_text">确定注册</string>
+
+    <!--账号/验证码登录-->
+    <string name="account_login_phone_hint">请输入您的手机号</string>
+    <string name="account_login_pwd_hint">请输入您的密码</string>
+    <string name="account_login_confirm_pwd_hint">请确定新密码</string>
+    <string name="account_switch_btn_text">切换验证码登录</string>
+    <string name="account_forgot_pwd">忘记密码</string>
+    <string name="account_login_use_agreement">登录即认为默认同意《快递纵横用户协议》</string>
+
+    <!--忘记密码-->
+    <string name="forgot_pwd_phone_hint">请输入您的手机号</string>
+    <string name="forgot_pwd_validate_code_hint">请输入您的验证码</string>
+    <string name="forgot_pwd_confirm_pwd_hint">请确定新密码</string>
+    <string name="forgot_pwd_pwd_hint">请设置新密码</string>
+    <string name="forgot_pwd_btn_text">确定修改</string>
+
+
+    <string name="login_name_hint">请输入网点编号</string>
+    <string name="login_phone_hint">请输入手机号</string>
+    <string name="login_org_code_hint">请输入网点编码</string>
+    <string name="login_password_hint">请输入密码</string>
+    <string name="login_rbtn_text">记住密码</string>
+    <string name="login_get_back_pwd">找回密码</string>
+
+    <!--找回密码-->
+    <string name="login_get_back_validate_phone_num">1.验证手机号码</string>
+    <string name="login_get_back_set_new_pwd">2.设置新密码</string>
+
+    <string name="login_get_back_next_step">下一步</string>
+    <string name="get_back_pwd_confirm">确定提交</string>
+    <string name="get_back_pwd_validate_sms_code">发送短信验证码</string>
+    <string name="get_back_pwd_validate_pic_code">获取图形验证码</string>
+    <string name="get_back_pwd_validate_sms_code_hint">请输入短信验证码</string>
+
+
+    <!--图形与短信验证-->
+    <string name="sms_captcha_hint">请输入短信验证码</string>
+    <string name="sms_login_success_note">登录成功</string>
+    <string name="sms_login_failure_note">登录失败</string>
+    <string name="sms_login_zto_note">中通验证需先获取短信验证码</string>
+
+    <string name="pic_captcha_hint">输入图形验证码</string>
+
+
+
+    <string name="home_bottom_tab_home">首页</string>
+<!--    <string name="home_bottom_tab_network">网点</string>-->
+    <string name="home_bottom_tab_task">任务</string>
+    <string name="home_bottom_tab_news">江湖</string>
+    <string name="home_bottom_tab_setting">我的</string>
+
+
+</resources>

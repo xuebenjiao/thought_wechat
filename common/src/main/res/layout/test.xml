@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+
+        android:layout_marginTop="@dimen/dp_8"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="@dimen/dp_100"
+            android:background="@color/color_1aff3428"
+            android:gravity="center"
+            android:onClick="@{pictureTitleView::btnDel}"
+            android:layout_weight="1"
+            android:layout_height="0dp">
+
+            <Button
+                android:layout_marginLeft="@dimen/dp_4"
+                android:id="@+id/btn_delete"
+                android:layout_gravity="center"
+                android:onClick="@{pictureTitleView::btnDel}"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                android:text="删除"
+                android:background="@null"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="@dimen/dp_100"
+            android:background="@color/theme_color"
+            android:gravity="center"
+            android:onClick="@{pictureTitleView::btnUpdate}"
+            android:layout_weight="1"
+            android:layout_height="0dp">
+            <Button
+                android:id="@+id/btn_update"
+                android:layout_gravity="center"
+                android:onClick="@{pictureTitleView::btnUpdate}"
+                android:textColor="#ffffff"
+                android:text="编辑"
+                android:textSize="16sp"
+                android:layout_marginLeft="@dimen/dp_4"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

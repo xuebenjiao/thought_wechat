@@ -1,0 +1,74 @@
+apply plugin: 'com.android.library'
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+    }
+
+    resourcePrefix 'permission'
+    buildTypes {
+        //开发环境
+        debug {
+            /*  debuggable true
+              signingConfig signingConfigs.debug
+              *//*         minifyEnabled true
+                       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'*//*
+  //            buildConfigField 'String', 'SERVER_URL', '"http://192.168.207.186:7060/"'
+              buildConfigField 'String', 'SERVER_URL', '"http://share.test.app.api.ng.agno.top/"'
+              buildConfigField 'String', 'WEBVIEW_URL', '"http://share.test.h5.web.ng.agno.top/#/"'
+              buildConfigField 'String', 'CONTRO_WEBVIEW_URL', '"http://192.168.207.153:8181/cockpit/#/index"'*/
+        }
+        //测试环境
+        check {
+//            debuggable false
+            /* signingConfig signingConfigs.release
+ //            buildConfigField("String", "releaseTime", "\"" + new Date().format("yyyy-MM-dd HH:mm:ss") + "\"")
+             *//**
+             * 自己代码混淆
+             *//*
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'SERVER_URL', '"http://share.test.app.api.ng.agno.top/"'
+            buildConfigField 'String', 'WEBVIEW_URL', '"http://share.test.h5.web.ng.agno.top/#/"'
+            buildConfigField 'String', 'CONTRO_WEBVIEW_URL', '"http://192.168.207.153:8181/cockpit/#/index"'*/
+        }
+        //uat环境
+        uat {
+//            debuggable false
+            /*  signingConfig signingConfigs.release
+  //            buildConfigField("String", "releaseTime", "\"" + new Date().format("yyyy-MM-dd HH:mm:ss") + "\"")
+              *//**
+             * 自己代码混淆
+             *//*
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'SERVER_URL', '"http://share.uat.app.web.ng.agno.top/"'
+            buildConfigField 'String', 'WEBVIEW_URL', '"http://share.uat.h5.web.ng.agno.top/#/"'
+            buildConfigField 'String', 'CONTRO_WEBVIEW_URL', '"http://share.uat.h5.web.ng.agno.top/cockpit/#/index"'*/
+        }
+        release {
+//            debuggable false
+            /* signingConfig signingConfigs.release
+ //            buildConfigField("String", "releaseTime", "\"" + new Date().format("yyyy-MM-dd HH:mm:ss") + "\"")
+             *//**
+             * 自己代码混淆
+             *//*
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'SERVER_URL', '"http://yjtgp-api.yto.net.cn/"'
+            buildConfigField 'String', 'WEBVIEW_URL', '"http://yjtgp-h5.yto.net.cn/#/"'
+            buildConfigField 'String', 'CONTRO_WEBVIEW_URL', '"http://yjtgp-h5.yto.net.cn/cockpit/#/index"'*/
+        }
+        lintOptions {
+            abortOnError false
+        }
+
+    }
+}
+
+dependencies {
+    api "androidx.appcompat:appcompat:1.1.0"
+}

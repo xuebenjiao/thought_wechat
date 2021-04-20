@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:roundiv="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.xbj.common.views.picturetitleview.BrandPictureViewModel" />
+        <variable
+            name="eventHandler"
+            type="com.xbj.common.views.picturetitleview.BrandPictureView" />
+        <import type="android.view.View" />
+        <import type="android.text.TextUtils" />
+        <import type="androidx.databinding.ObservableField" />
+    </data>
+    <LinearLayout
+        android:clickable="true"
+        android:onClick="@{eventHandler::onLayoutClick}"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        >
+<!--        <com.yto.common.views.CircleImageView-->
+        <com.xbj.common.RoundAngleImageView
+            roundiv:radius="@dimen/dp_4"
+            roundiv:left_bottom_radius="@dimen/dp_4"
+            roundiv:left_top_radius="@dimen/dp_4"
+            roundiv:right_bottom_radius="@dimen/dp_4"
+            roundiv:right_top_radius="@dimen/dp_4"
+            android:layout_marginTop="@dimen/dp_4"
+            android:visibility="@{viewModel.showNetPic?View.GONE:View.VISIBLE}"
+            android:layout_gravity="center"
+            android:id="@+id/item_image"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
+            android:src="@{viewModel.drawable}"
+            android:layout_marginBottom="@dimen/dp_10"
+            />
+        <com.xbj.common.RoundAngleImageView
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_6"
+            android:visibility="@{viewModel.showNetPic?View.VISIBLE:View.GONE}"
+            android:layout_width="@dimen/dp_70"
+            android:src="@drawable/place_holder_pic"
+            android:scaleType="fitXY"
+            roundiv:radius="@dimen/dp_10"
+            roundiv:left_bottom_radius="@dimen/dp_10"
+            roundiv:left_top_radius="@dimen/dp_10"
+            roundiv:right_bottom_radius="@dimen/dp_10"
+            roundiv:right_top_radius="@dimen/dp_10"
+            loadImageUrl="@{viewModel.picUrlStr}"
+            android:layout_height="@dimen/dp_70"/>
+        <!--android:layout_marginTop="@dimen/dp_6"-->
+    </LinearLayout>
+</layout>

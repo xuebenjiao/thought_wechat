@@ -1,0 +1,53 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="buttonStyle">@style/Widget.AppCompat.Button.Borderless</item>
+        <item name="colorPrimary">@color/theme_color</item><!--Toolbar的颜色-->
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="colorAccent">@color/theme_color</item>
+    </style>
+
+
+    <style name="AppBarLayoutTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorControlNormal">@color/black</item>
+    </style>
+
+
+<!--    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        &lt;!&ndash;开启底部虚拟导航栏&ndash;&gt;
+        <item name="android:windowTranslucentNavigation">true</item>
+       <item name="android:windowBackground">@mipmap/splash_bg</item>
+&lt;!&ndash;        <item name="android:windowBackground">@drawable/splash_bg</item>&ndash;&gt;
+           <item name="android:windowFullscreen">true</item>
+    </style>-->
+
+
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/bg_splash</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">false</item>
+    </style>
+
+
+
+
+    <!-- 自定义控件风格-->
+    <style name="Custom" />
+
+    <style name="Custom.TabRadioButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:padding">@dimen/dp_5</item>
+        <item name="android:gravity">center</item>
+        <item name="android:button">@null</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+        <item name="android:textColor">@color/tab_text_color_selector</item>
+    </style>
+
+
+
+</resources>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.xbj.common.views.listItem.PublishTaskItemViewModel" />
+        <import type="android.view.View" />
+        <import type="android.text.TextUtils" />
+        <import type="androidx.databinding.ObservableField" />
+    </data>
+    <LinearLayout
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:paddingLeft="@dimen/dp_6"
+        android:paddingRight="@dimen/dp_6"
+        android:paddingBottom="@dimen/dp_10"
+        android:orientation="vertical"
+        android:background="@drawable/bg_white_border_radius4_shape"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center|left"
+            android:background="@color/white"
+            android:layout_height="@dimen/dp_40"
+            >
+            <ImageView
+                android:id="@+id/item_image"
+                android:layout_width="@dimen/dp_20"
+                android:layout_height="@dimen/dp_20"
+                android:src="@{viewModel.itemTypeFlag?@drawable/icon_station_zdrw:@drawable/icon_zdrw}"
+                />
+            <!--            android:src="@{viewModel.drawable}"-->
+            <com.thoughtwork.base.customview.GoogleBoldFontTextView
+                android:layout_width="@dimen/dp_0"
+                android:layout_marginLeft="@dimen/dp_6"
+                android:layout_weight="1"
+                android:textSize="@dimen/sp_15"
+                android:gravity="center|left"
+                android:textColor="@color/color_333333"
+                android:text="@{viewModel.taskName}"
+                android:layout_height="match_parent">
+            </com.thoughtwork.base.customview.GoogleBoldFontTextView>
+            <TextView
+                android:layout_marginLeft="@dimen/dp_6"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:text="@{viewModel.taskDate}"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/color_999999"
+                android:layout_gravity="center|right"
+                android:layout_height="match_parent">
+            </TextView>
+        </LinearLayout>
+        <!--   <View
+               style="@style/ViewLineHorizontalOnePx"/>-->
+        <LinearLayout
+            android:paddingBottom="@dimen/dp_10"
+            android:background="@{viewModel.itemTypeFlag?@drawable/publish_item_station_bg:@drawable/publish_item_olts_bg}"
+            android:layout_width="match_parent"
+            android:paddingLeft="@dimen/dp_26"
+            android:paddingRight="@dimen/dp_24"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/dp_6"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/color_333333"
+                android:text="@{viewModel.taskTypeName}"
+                android:layout_height="wrap_content">
+            </TextView>
+            <com.daimajia.numberprogressbar.NumberProgressBar
+                android:id="@+id/number_progress"
+                android:layout_marginTop="@dimen/dp_6"
+                android:layout_width="match_parent"
+                style="@style/NumberProgressBar_Default"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

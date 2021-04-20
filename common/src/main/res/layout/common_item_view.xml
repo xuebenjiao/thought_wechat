@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="pageEntity"
+            type="com.xbj.common.views.listItem.CommonItemViewModel" />
+        <import type="android.view.View"/>
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+        <TextView
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@{pageEntity.leftTitle}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_14"
+            />
+        <TextView
+            android:id="@+id/user_infor_name_tv"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center|right"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@{pageEntity.contentColor}"
+            android:textSize="@dimen/sp_14"
+            android:text="@{pageEntity.rightContent}"
+            android:button="@null"
+            />
+        <View
+            android:layout_alignParentBottom="true"
+            style="@style/ViewLineHorizontalOnePx"/>
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.xbj.common.views.listItem.LeftContentRightArrowItemViewModel" />
+        <import type="android.view.View" />
+        <import type="android.text.TextUtils" />
+        <import type="androidx.databinding.ObservableField" />
+    </data>
+
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_49"
+        android:background="@color/color_f6f8fb"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:background="@color/white"
+            android:layout_marginBottom="@dimen/dp_1"
+            android:id="@+id/recycle_list_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+            <ImageView
+                android:id="@+id/item_image"
+                android:visibility="@{viewModel.showLeftPic?View.VISIBLE:View.GONE}"
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="@dimen/dp_24"
+                android:scaleType="fitXY"
+
+                android:src="@{viewModel.drawable}"
+                />
+            <TextView
+                android:layout_marginLeft="@dimen/dp_12"
+                android:id="@+id/item_file_name"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="2"
+                android:text="@{viewModel.title}"
+                android:textColor="@{viewModel.titleColor}"
+                android:textSize="@dimen/sp_14"
+
+                tools:text="myFileName.java" />
+            <!--  android:textStyle="bold"-->
+            <TextView
+                android:id="@+id/item_description"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingRight="@dimen/dp_8"
+                android:gravity="center|right"
+                android:textColor="@{viewModel.descColor}"
+                android:textSize="@dimen/sp_14"
+                android:text="@{viewModel.desc}"
+                />
+            <ImageView
+                android:id="@+id/item_check_btn"
+                android:layout_width="@dimen/dp_16"
+                android:layout_height="@dimen/dp_16"
+                android:layout_gravity="center"
+                android:background="@drawable/arrow_right"
+                android:button="@null"
+                />
+
+        </LinearLayout>
+        <View
+            style="@style/ViewLineHorizontalOnePx"/>
+    </LinearLayout>
+</layout>

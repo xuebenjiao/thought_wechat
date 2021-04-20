@@ -1,0 +1,85 @@
+apply plugin: 'com.android.library'
+//apply from: 'https://raw.githubusercontent.com/blundell/release-android-library/master/android-release-aar.gradle'
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+//        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        //开发环境
+        debug {
+
+        }
+        //测试环境
+        check {
+//            debuggable false
+            /* signingConfig signingConfigs.release
+ //            buildConfigField("String", "releaseTime", "\"" + new Date().format("yyyy-MM-dd HH:mm:ss") + "\"")
+             *//**
+             * 自己代码混淆
+             *//*
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'SERVER_URL', '"http://share.test.app.api.ng.agno.top/"'
+            buildConfigField 'String', 'WEBVIEW_URL', '"http://share.test.h5.web.ng.agno.top/#/"'
+            buildConfigField 'String', 'CONTRO_WEBVIEW_URL', '"http://192.168.207.153:8181/cockpit/#/index"'*/
+        }
+        //uat环境
+        uat {
+//            debuggable false
+            /*  signingConfig signingConfigs.release
+  //            buildConfigField("String", "releaseTime", "\"" + new Date().format("yyyy-MM-dd HH:mm:ss") + "\"")
+              *//**
+             * 自己代码混淆
+             *//*
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'SERVER_URL', '"http://share.uat.app.web.ng.agno.top/"'
+            buildConfigField 'String', 'WEBVIEW_URL', '"http://share.uat.h5.web.ng.agno.top/#/"'
+            buildConfigField 'String', 'CONTRO_WEBVIEW_URL', '"http://share.uat.h5.web.ng.agno.top/cockpit/#/index"'*/
+        }
+        release {
+//            debuggable false
+            /* signingConfig signingConfigs.release
+ //            buildConfigField("String", "releaseTime", "\"" + new Date().format("yyyy-MM-dd HH:mm:ss") + "\"")
+             *//**
+             * 自己代码混淆
+             *//*
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'SERVER_URL', '"http://yjtgp-api.yto.net.cn/"'
+            buildConfigField 'String', 'WEBVIEW_URL', '"http://yjtgp-h5.yto.net.cn/#/"'
+            buildConfigField 'String', 'CONTRO_WEBVIEW_URL', '"http://yjtgp-h5.yto.net.cn/cockpit/#/index"'*/
+        }
+        lintOptions {
+            abortOnError false
+        }
+
+    }
+    /*   buildTypes {
+           release {
+               minifyEnabled false
+               proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+           }
+       }*/
+    dataBinding {
+        enabled true
+    }
+}
+
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api 'com.github.bumptech.glide:glide:4.10.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
+    api 'com.android.support:appcompat-v7:23.2.1'
+    api 'com.android.support:support-v4'
+}

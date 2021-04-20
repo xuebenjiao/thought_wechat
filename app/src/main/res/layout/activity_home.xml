@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="entity"
+            type="com.thoughtwork.comment.pageentity.HomePageEntity" />
+        <variable
+            name="presenter"
+            type="com.thoughtwork.comment.presenter.HomePageHandler" />
+        <import type="com.thoughtwork.comment.presenter.HomePageHandler"></import>
+        <import type="android.view.View"/>
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:visibility="@{entity.showTopTitle?View.VISIBLE:View.GONE}"
+            android:id="@+id/title"
+            android:layout_alignParentTop="true"
+            android:paddingRight="@dimen/dp_10"
+            android:background="@color/theme_color"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_44"
+            >
+            <LinearLayout
+                android:layout_width="@dimen/dp_100"
+                android:layout_marginLeft="@dimen/dp_8"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_height="match_parent"
+                android:onClick="@{presenter::onSelectCity}">
+                <Button
+                    android:onClick="@{presenter::onSelectCity}"
+                    android:layout_gravity="center"
+                    android:id="@+id/title_layout_left_btn"
+                    android:layout_width="@dimen/dp_15"
+                    android:layout_height="@dimen/dp_15"
+                    android:background="@drawable/location_icons"
+                    />
+
+                <TextView
+                    android:id="@+id/location_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/dp_1"
+                    android:ellipsize="end"
+                    android:gravity="center|left"
+                    android:singleLine="true"
+                    android:text="@={entity.locationCity}"
+                    android:textColor="@color/sdColorWhite"
+                    android:textSize="@dimen/sp_14">
+                    <!-- -->
+                </TextView>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/title_layout_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textStyle="bold"
+                android:textColor="@color/sdColorWhite"
+                android:textSize="@dimen/sp_18"
+                android:text="@{entity.titleName}">
+            </TextView>
+
+            <LinearLayout
+                android:visibility="@{entity.showMapFlag?View.VISIBLE:View.GONE}"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center|right"
+                android:layout_width="@dimen/dp_40"
+                android:layout_alignParentRight="true"
+                android:onClick="@{presenter::onClickMap}"
+                android:layout_height="match_parent">
+                <Button
+                    android:onClick="@{presenter::onClickMap}"
+                    android:layout_width="@dimen/dp_18"
+                    android:layout_height="@dimen/dp_18"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:background="@drawable/map_icons"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:visibility="@{entity.showMapListFlag?View.VISIBLE:View.GONE}"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center|right"
+                android:layout_width="@dimen/dp_40"
+                android:layout_alignParentRight="true"
+                android:onClick="@{presenter::onClickListMap}"
+                android:layout_height="match_parent">
+                <Button
+                    android:onClick="@{presenter::onClickListMap}"
+                    android:layout_width="@dimen/dp_18"
+                    android:layout_height="@dimen/dp_18"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:background="@drawable/record_img"
+                    />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_below="@+id/title"
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/tabs_rg" />
+        <RadioGroup
+            android:id="@+id/tabs_rg"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/home_tab"
+                style="@style/Custom.TabRadioButton"
+                android:checked="true"
+                android:drawableTop="@drawable/tab_sign_selector"
+                android:text="@string/home_bottom_tab_home" />
+
+            <RadioButton
+                android:id="@+id/task_tab"
+                style="@style/Custom.TabRadioButton"
+                android:drawableTop="@drawable/tab_record_selector"
+                android:text="@string/home_bottom_tab_task" />
+
+<!--            <View
+                android:visibility="gone"
+                style="@style/Custom.TabRadioButton"/>-->
+
+            <RadioButton
+                android:id="@+id/world_tab"
+                style="@style/Custom.TabRadioButton"
+                android:drawableTop="@drawable/tab_contact_selector"
+                android:text="@string/home_bottom_tab_news" />
+
+            <RadioButton
+                android:id="@+id/settings_tab"
+                style="@style/Custom.TabRadioButton"
+                android:drawableTop="@drawable/tab_setting_selector"
+                android:text="@string/home_bottom_tab_setting" />
+        </RadioGroup>
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/task_iv"
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="@dimen/dp_80"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@android:color/transparent"
+            android:src="@mipmap/sign" />
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/task_tv"
+            android:gravity="center"
+            android:layout_width="@dimen/dp_80"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_14"
+            android:text="@string/home_bottom_tab_task"
+            android:layout_height="@dimen/dp_80"
+            android:background="@android:color/transparent"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true">
+        </TextView>
+    </RelativeLayout>
+
+</layout>

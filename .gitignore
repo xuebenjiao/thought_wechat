@@ -1,0 +1,72 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/caches/build_file_checksums.ser
+/.idea/assetWizardSettings.xml
+.DS_Store
+app/build/
+base/build/
+bluetooth/build/
+common/build/
+drive-module/build/
+lib-zxing/build/
+magicindicator/build/
+network/build/
+permission/build/
+scan/build/
+SwipeItem/build/
+update/build/
+update-library/build/
+usercenter/build/
+webview/build/
+zbar/build/
+zxing/build/
+unionOcrModule/build/
+intsigLibModule/build/
+slideBottomlibrary/build/
+ytoLibModule/build/
+bestLibModule/build/
+bestOpencv/build/
+bestZviews/build/
+/captures
+.externalNativeBuild
+.cxx
+*.bat
+*.txt
+*.apk
+# app用到zip的请忽略
+*.zip
+# 自定义了local.properties的请删除这条
+*.properties
+/captures
+~$*
+gradlew
+.DS_Store
+
+# Built application files
+*.apk
+*.ap_
+# Files for the Dalvik VM
+*.dex
+# Java class files
+*.class
+# Genetated files
+bin/
+gen/
+# OSX files
+.DS_Store
+# Android Studio
+*.iml
+.idea
+# Gradle files
+# Local configuration file (sdk path , etc)
+local.properties
+# Proguard folder generated bg Eclipse
+
+/.idea/
+/.idea/codeStyles/

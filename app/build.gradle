@@ -1,0 +1,182 @@
+//apply plugin: 'com.android.application'
+ext.mainApp = true
+apply from: rootProject.file('cc-settings-2.gradle')
+//腾讯bug管理插件
+//apply plugin: 'bugly'
+//bugly {
+//    appId = '5fbaeb6c2f' // 注册时分配的App ID
+//    appKey = 'e77d994f-cd79-4f48-879c-052fcfc51fa7' // 注册时分配的App Key
+//    debug = true
+//}
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
+    defaultConfig {
+        manifestPlaceholders = [
+                app_name: "快递纵横",
+                app_icon: "@mipmap/img_logo"
+        ]
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode rootProject.versionCode
+        versionName rootProject.versionName
+        //通常我们都会有armeabi和x86(平板)平台的so文件,这两个都是为32位的平台提供。有这两个就满足的几乎全部的机型了
+        //armeabi-v7a,arm64-v8a都是arm平台的更优化的平台，使用这个so文件效率更高，如果有这种的so文件那么就添加响应的配置。
+        //手机优先选择平台更好的处理平台的so文件，因此没有高版本的so文件就不要添加配置。
+        //这里有一份Android 处理器架构的汇总建议：
+        //mips (已弃用)
+        //mips64 (已弃用)
+        //armeabi (已弃用)
+        //armeabi-v7a (需要支持— 现在最流行的处理器架构)
+        //arm64-v8a (需要支持 — armeabi-v7a的新版本)
+        //x86 (可选, 设备非常有限，可以用于模拟器debugging)
+        //x86_64 (可选, 设备非常有限，可以用于模拟器debugging)
+        ndk { //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi','arm64-v8a'//, 'armeabi-v7a', 'armeabi-v8a', 'x86', 'x86_64', 'mips', 'mips64'
+        }
+        // 设置支持multidex
+        multiDexEnabled true
+        flavorDimensions "default"
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    //doNotStrip "*/*/libyuv2.so" 不需要对应架构
+    //exclude 'META-INF/rxjava.properties' 排除
+    //pickFirst 'lib/*/libmyJNI.so' 选择首项
+    //
+    //链接：https://www.jianshu.com/p/45192f432787 解决项目中多so文件引用
+    packagingOptions {
+        pickFirst 'lib/*/libzbarex.so'
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+
+    /**
+     * 配置测试环境和生产环境的正式
+     */
+    signingConfigs {
+        debug {
+            storeFile file("keystore/release/android.keystore")
+            storePassword "111111"
+            keyPassword "111111"
+            keyAlias "android.keystore"
+        }
+        release {
+            storeFile file("keystore/release/android.keystore")
+            storePassword "111111"
+            keyPassword "111111"
+            keyAlias "android.keystore"
+        }
+    }
+    buildTypes {
+        //开发环境
+        debug {
+            debuggable true
+            signingConfig signingConfigs.debug
+            /*app服务端地址*/
+            buildConfigField 'String', 'SERVER_URL', '"thoughtworks-ios.herokuapp.com/user/"'
+        }
+
+        release {
+            signingConfig signingConfigs.release
+            /**
+             * 自己代码混淆
+             */
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            /*app服务端地址*/
+            buildConfigField 'String', 'SERVER_URL', '"thoughtworks-ios.herokuapp.com/user/"'
+        }
+        lintOptions {
+            abortOnError false
+        }
+
+    }
+    flavorDimensions("")
+    productFlavors {
+        /*    FUN{
+                dimension "FUN"
+            }*/
+        //开发环境
+        env_dep {
+            buildConfigField "int", "ENV_TYPE", "1"
+            applicationId 'com.yto.comment'
+            manifestPlaceholders = [
+                    app_name: "开_思特沃克",
+                    app_icon: "@mipmap/img_logo"
+            ]
+        }
+        //测试环境
+        env_test {
+            buildConfigField "int", "ENV_TYPE", "2"
+            applicationId 'com.yto.comment'
+//            applicationId 'com.yto.comment.dep'
+            manifestPlaceholders = [
+                    app_name: "测_思特沃克",
+                    app_icon: "@mipmap/img_logo"
+            ]
+        }
+        //uat环境
+        env_uat {
+            buildConfigField "int", "ENV_TYPE", "3"
+            applicationId 'com.yto.comment.uat'
+            manifestPlaceholders = [
+                    app_name: "U_思特沃克",
+                    app_icon: "@mipmap/img_logo"
+            ]
+        }
+        //生产环境
+        env_release {
+            buildConfigField "int", "ENV_TYPE", "4"
+            applicationId 'com.yto.comment'
+            manifestPlaceholders = [
+                    app_name: "思特沃克",
+                    app_icon: "@mipmap/img_logo"
+            ]
+        }
+    }
+
+
+    dataBinding {
+        enabled true //开启dabaBingding 双向数据绑定
+    }
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+    /**
+     * 打包apk名称配置
+     */
+    android.applicationVariants.all {
+        variant ->
+            variant.outputs.all {
+                //在这里修改apk文件名
+                outputFileName = "comment_${variant.name}_${variant.versionName}.apk"
+            }
+    }
+
+}
+//打包时间
+def buildTime() {
+//    return new Date().format("yyyy_MM_dd", TimeZone.getTimeZone("UTC"))
+}
+
+dependencies {
+
+    implementation "androidx.appcompat:appcompat:$rootProject.androidXVersion"
+    implementation "com.google.android.material:material:$rootProject.androidXVersion"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation project(path:":network")
+    implementation "androidx.startup:startup-runtime:1.0.0-alpha01"
+    implementation 'com.android.support:multidex:1.0.1'
+//    implementation 'com.github.shegang:ytoCommonAlert:1.2.5'
+
+}

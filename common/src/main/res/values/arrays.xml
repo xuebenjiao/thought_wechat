@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="network_domain_array">
+        <item>域名</item>
+        <item>yjtgp-api.yto.net.cn</item>
+        <!--公告-->
+        <item>ann.yto.net.cn</item>
+        <item>www.baidu.com</item>
+    </string-array>
+    <string-array name="network_ip_array">
+        <item>IP地址</item>
+        <!--yjtgp-api.yto.net.cn 对应的IP-->
+        <item>101.37.150.123</item>
+        <!--公告ann.yto.net.cn 的ip-->
+        <item>58.246.44.29</item>
+        <item>114.114.114.114</item>
+    </string-array>
+
+
+    <string-array name="express_name">
+        <item>圆通</item>
+        <item>百世</item>
+        <item>中通</item>
+        <item>申通</item>
+        <item>韵达</item>
+    </string-array>
+    <string-array name="network_other">
+    </string-array>
+</resources>

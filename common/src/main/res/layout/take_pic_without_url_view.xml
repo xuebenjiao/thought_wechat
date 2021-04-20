@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.xbj.common.views.listItem.TakePicWithoutUrlViewModel" />
+        <variable
+            name="pictureTitleView"
+            type="com.xbj.common.views.listItem.TakePicWithoutUrlView" />
+
+        <import type="android.view.View" />
+        <import type="android.text.TextUtils" />
+        <import type="androidx.databinding.ObservableField" />
+    </data>
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_marginRight="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_8"
+            android:paddingBottom="@dimen/dp_19"
+            android:paddingTop="@dimen/dp_18"
+            android:paddingLeft="@dimen/dp_16"
+            android:paddingRight="@dimen/dp_16"
+            android:background="@drawable/bg_1a00c791_radius10_shape"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:onClick="@{pictureTitleView::takeOrSelectPic}"
+                android:id="@+id/camera"
+                android:layout_width="@dimen/dp_31"
+
+                android:gravity="center"
+                android:src="@drawable/camera_pic"
+                android:layout_height="@dimen/dp_27">
+            </ImageView>
+            <!--        imageUrl="@{viewModel.pictureUrl}"-->
+        </LinearLayout>
+        <LinearLayout
+            android:clickable="true"
+            android:visibility="@{TextUtils.isEmpty(viewModel.pictureUrl)?View.GONE:View.VISIBLE}"
+            android:onClick="@{pictureTitleView::clickDelImg}"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_gravity="right"
+                android:id="@+id/delete_image_view"
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="@dimen/dp_24"
+                android:src="@drawable/form_del"/>
+        </LinearLayout>
+    </FrameLayout>
+</layout>

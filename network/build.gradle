@@ -1,0 +1,102 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
+    defaultConfig {
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+    /*buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }*/
+    buildTypes {
+        //开发环境
+        debug {
+            /*  debuggable true
+              signingConfig signingConfigs.debug
+              *//*         minifyEnabled true
+                       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'*//*
+      //            buildConfigField 'String', 'SERVER_URL', '"http://192.168.207.186:7060/"'
+              buildConfigField 'String', 'SERVER_URL', '"http://share.test.app.api.ng.agno.top/"'
+              buildConfigField 'String', 'WEBVIEW_URL', '"http://share.test.h5.web.ng.agno.top/#/"'
+              buildConfigField 'String', 'CONTRO_WEBVIEW_URL', '"http://192.168.207.153:8181/cockpit/#/index"'*/
+        }
+        //测试环境
+        check {
+//            debuggable false
+            /* signingConfig signingConfigs.release
+      //            buildConfigField("String", "releaseTime", "\"" + new Date().format("yyyy-MM-dd HH:mm:ss") + "\"")
+             *//**
+             * 自己代码混淆
+             *//*
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'SERVER_URL', '"http://share.test.app.api.ng.agno.top/"'
+            buildConfigField 'String', 'WEBVIEW_URL', '"http://share.test.h5.web.ng.agno.top/#/"'
+            buildConfigField 'String', 'CONTRO_WEBVIEW_URL', '"http://192.168.207.153:8181/cockpit/#/index"'*/
+        }
+        //uat环境
+        uat {
+//            debuggable false
+            /*  signingConfig signingConfigs.release
+      //            buildConfigField("String", "releaseTime", "\"" + new Date().format("yyyy-MM-dd HH:mm:ss") + "\"")
+              *//**
+             * 自己代码混淆
+             *//*
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'SERVER_URL', '"http://share.uat.app.web.ng.agno.top/"'
+            buildConfigField 'String', 'WEBVIEW_URL', '"http://share.uat.h5.web.ng.agno.top/#/"'
+            buildConfigField 'String', 'CONTRO_WEBVIEW_URL', '"http://share.uat.h5.web.ng.agno.top/cockpit/#/index"'*/
+        }
+        release {
+//            debuggable false
+            /* signingConfig signingConfigs.release
+      //            buildConfigField("String", "releaseTime", "\"" + new Date().format("yyyy-MM-dd HH:mm:ss") + "\"")
+             *//**
+             * 自己代码混淆
+             *//*
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'SERVER_URL', '"http://yjtgp-api.yto.net.cn/"'
+            buildConfigField 'String', 'WEBVIEW_URL', '"http://yjtgp-h5.yto.net.cn/#/"'
+            buildConfigField 'String', 'CONTRO_WEBVIEW_URL', '"http://yjtgp-h5.yto.net.cn/cockpit/#/index"'*/
+        }
+        lintOptions {
+            abortOnError false
+        }
+
+    }
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+    dataBinding{
+        enabled true
+    }
+}
+
+dependencies {
+    api project(path:':common')
+    api 'com.squareup.retrofit2:retrofit:2.3.0'
+    api 'com.squareup.retrofit2:converter-gson:2.3.0'
+    api 'com.squareup.retrofit2:adapter-rxjava:2.3.0'
+    api 'com.squareup.okhttp3:okhttp:3.8.0'
+    api 'com.google.code.gson:gson:2.8.2'
+    api 'com.google.guava:guava:23.3-android'
+    api "com.squareup.okhttp3:logging-interceptor:3.8.1"
+    //引入rxjava适配器，方便rxjava与retrofit的结合
+    api 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+    //引入rxandroid
+    api 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    api 'io.reactivex:rxandroid:1.2.1'
+
+
+}

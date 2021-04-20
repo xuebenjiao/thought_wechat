@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+   <!-- <TextView
+	    android:id="@+id/text"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+		android:text="软件新城东门"
+		android:textSize="@dimen/dp_14"
+		android:textColor="@drawable/txt_color_address_selector"
+		android:layout_marginTop="@dimen/dp_10"
+		android:layout_marginLeft="@dimen/dp_9"
+		android:gravity="center"
+		android:paddingTop="@dimen/dp_5"
+		android:paddingBottom="@dimen/dp_5"
+		android:paddingLeft="@dimen/dp_14"
+		android:paddingRight="@dimen/dp_14"
+        android:background="@drawable/btn_address_selector"
+
+	     />-->
+
+	<TextView
+		android:id="@+id/text"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:text="软件新城东门"
+		android:textSize="@dimen/dp_14"
+		android:textColor="@drawable/txt_color_address_selector"
+		android:layout_marginBottom="@dimen/dp_10"
+		android:layout_marginLeft="@dimen/dp_9"
+		android:gravity="center"
+		android:paddingTop="@dimen/dp_5"
+		android:paddingBottom="@dimen/dp_5"
+		android:paddingLeft="@dimen/dp_10"
+		android:paddingRight="@dimen/dp_10"
+		android:background="@drawable/btn_address_selector"
+
+		/>
+	    
+    <!--<TextView
+        android:id="@+id/delete_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:padding="3dp"
+        android:visibility="gone"
+        android:textColor="#1a1414"
+        android:text="X"
+        android:layout_gravity="top|right"
+        />-->
+
+</FrameLayout>

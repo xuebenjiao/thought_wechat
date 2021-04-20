@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="entity"
+            type="com.xbj.common.entity.CommonTitleModel" />
+        <variable
+            name="CommonHandler"
+            type="com.xbj.common.CommonHandler"/>
+        <variable
+            name="pageEntity"
+            type="com.thoughtwork.comment.pageentity.ForgotPwdEntity" />
+        <variable
+            name="clickHandler"
+            type="com.thoughtwork.comment.presenter.RegisterPageClickHandler"/>>
+        <import type="android.view.View"/>
+
+    </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <include layout="@layout/comon_title_layout"
+                bind:MyClickHandler="@{CommonHandler}"
+                bind:entity="@{entity}">
+            </include>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_height="@dimen/dp_180">
+                <ImageView
+                    android:background="@color/white"
+                    android:id="@+id/login_logo"
+                    android:layout_width="@dimen/dp_80"
+                    android:layout_height="@dimen/dp_80"
+                    android:contentDescription="@null"
+                    android:src="@drawable/img_logo"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="@string/app_name"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/sp_20"
+                    android:textColor="@color/theme_color"
+                    android:layout_height="wrap_content">
+                </TextView>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/login_percent_relative_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_m_40"
+                android:layout_marginRight="@dimen/dp_16"
+                android:background="@drawable/shape_login"
+                android:padding="@dimen/dp_16">
+
+                <LinearLayout
+                    android:id="@+id/login_phone_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/login_invitation_code_layout"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:visibility="gone"
+                        android:layout_marginRight="@dimen/dp_6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/tabbar_mine_default"></ImageView>
+
+                    <EditText
+                        android:background="@null"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_50"
+                        android:hint="@string/account_login_phone_hint"
+                        android:inputType="phone"
+                        android:singleLine="true"
+                        android:text="@={pageEntity.registerPhone}"
+                        android:textColorHint="@color/btnNotClickOrEtHintColor"
+                        android:textSize="@dimen/sp_14"
+                        android:theme="@style/MyEditText" />
+                </LinearLayout>
+                <View
+                    android:id="@+id/devider"
+                    android:layout_below="@+id/login_phone_layout"
+                    style="@style/ViewLineHorizontalOnePx"/>
+
+
+
+                <LinearLayout
+                    android:id="@+id/validate_code_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/devider"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:visibility="gone"
+                        android:layout_marginRight="@dimen/dp_6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/tabbar_mine_default"></ImageView>
+
+                    <EditText
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_weight="1"
+                        android:layout_height="@dimen/dp_50"
+                        android:background="@null"
+                        android:hint="@string/register_verification_code_hint"
+                        android:singleLine="true"
+                        android:text="@={pageEntity.validateCode}"
+                        android:textColorHint="@color/btnNotClickOrEtHintColor"
+                        android:textSize="@dimen/sp_14"
+                        android:theme="@style/MyEditText" />
+                    <Button
+                        android:layout_width="@dimen/dp_80"
+                        android:textColor="@color/white"
+                        android:onClick="@{clickHandler::getValidateCode}"
+                        android:background="@drawable/login_btn_click_shape"
+                        android:text="@{pageEntity.validateBtnName}"
+                        android:layout_height="@dimen/dp_30"></Button>
+                </LinearLayout>
+                <View
+                    android:id="@+id/devider1"
+                    android:layout_below="@+id/validate_code_layout"
+                    style="@style/ViewLineHorizontalOnePx"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_below="@+id/devider1"
+                    android:id="@+id/login_password_layout"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    app:errorEnabled="true"
+                    app:passwordToggleEnabled="true"
+                    android:textColorHint="@color/btnNotClickOrEtHintColor"
+                    app:passwordToggleDrawable="@drawable/selector_password_show_or_hide"
+                    android:layout_height="@dimen/dp_50">
+                    <EditText
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:hint="@string/forgot_pwd_pwd_hint"
+                        android:background="@null"
+                        android:inputType="textPassword"
+                        android:singleLine="true"
+                        android:text="@={pageEntity.registerPwd}"
+                        android:textSize="@dimen/sp_14"
+                        android:theme="@style/MyEditText" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <View
+                    android:id="@+id/devider2"
+                    android:layout_below="@+id/login_password_layout"
+                    style="@style/ViewLineHorizontalOnePx"/>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_below="@+id/devider2"
+                    android:id="@+id/register_comfirm_pwd_layout"
+                    app:errorEnabled="true"
+                    app:passwordToggleEnabled="true"
+                    android:textColorHint="@color/btnNotClickOrEtHintColor"
+                    app:passwordToggleDrawable="@drawable/selector_password_show_or_hide"
+                    android:layout_height="@dimen/dp_50">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_38"
+                        android:hint="@string/forgot_pwd_confirm_pwd_hint"
+                        android:background="@null"
+                        android:inputType="textPassword"
+                        android:singleLine="true"
+                        android:text="@={pageEntity.registerConfirmPwd}"
+                        android:textSize="@dimen/sp_14"
+                        android:theme="@style/MyEditText" />
+                </com.google.android.material.textfield.TextInputLayout>
+<!--                <LinearLayout-->
+<!--                    android:layout_below="@+id/devider1"-->
+<!--                    android:id="@+id/login_password_layout"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+
+<!--                    android:gravity="center">-->
+
+<!--                    <ImageView-->
+<!--                        android:visibility="gone"-->
+<!--                        android:layout_marginRight="@dimen/dp_6"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:src="@mipmap/tabbar_mine_default"></ImageView>-->
+
+<!--                    <EditText-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="@dimen/dp_50"-->
+<!--                        android:hint="@string/account_login_pwd_hint"-->
+<!--                        android:background="@null"-->
+<!--                        android:inputType="textPassword"-->
+<!--                        android:singleLine="true"-->
+<!--                        android:text="@={pageEntity.registerPwd}"-->
+<!--                        android:textColorHint="@color/btnNotClickOrEtHintColor"-->
+<!--                        android:textSize="@dimen/sp_14"-->
+<!--                        android:theme="@style/MyEditText" />-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_below="@+id/devider2"-->
+<!--                    android:id="@+id/register_comfirm_pwd_layout"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--            -->
+<!--                    android:gravity="center">-->
+
+<!--                    <ImageView-->
+<!--                        android:visibility="gone"-->
+<!--                        android:layout_marginRight="@dimen/dp_6"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:src="@mipmap/tabbar_mine_default"></ImageView>-->
+
+<!--                    <EditText-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="@dimen/dp_50"-->
+<!--                        android:hint="@string/account_login_pwd_hint"-->
+<!--                        android:inputType="textPassword"-->
+<!--                        android:background="@null"-->
+<!--                        android:singleLine="true"-->
+<!--                        android:text="@={pageEntity.registerConfirmPwd}"-->
+<!--                        android:textColorHint="@color/btnNotClickOrEtHintColor"-->
+<!--                        android:textSize="@dimen/sp_14"-->
+<!--                        android:theme="@style/MyEditText" />-->
+<!--                </LinearLayout>-->
+                <View
+                    android:id="@+id/devider3"
+                    android:layout_below="@+id/register_comfirm_pwd_layout"
+                    style="@style/ViewLineHorizontalOnePx"/>
+                <Button
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:id="@+id/login_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_45"
+                    android:layout_below="@+id/devider3"
+                    android:background="@{pageEntity.isClickable ? @drawable/login_btn_click_shape: @drawable/login_btn_not_click_shape}"
+                    android:enabled="@{pageEntity.isClickable}"
+                    android:onClick="@{clickHandler::forgotPwdReset}"
+                    android:text="@string/forgot_pwd_btn_text"
+                    android:textColor="@{pageEntity.isClickable ? @color/white : @color/white}"
+                    android:textSize="@dimen/sp_18"></Button>
+
+
+                <RelativeLayout
+
+                    android:id="@+id/layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/login_btn"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:orientation="horizontal">
+                    <!-- <LinearLayout
+                         android:layout_alignParentLeft="true"
+                         android:clickable="true"
+                         android:gravity="center"
+                         android:layout_width="@dimen/dp_100"
+                         android:orientation="horizontal"
+                         android:onClick="@{clickHandler::setRemberPwd}"
+                         android:layout_height="match_parent">
+                         <TextView
+                             android:background="@{pageEntity.selectRemPwd? @drawable/radio_pre : @drawable/radio_def}"
+                             android:layout_width="@dimen/dp_28"
+                             android:layout_height="@dimen/dp_28"
+                             android:layout_centerVertical="true"
+                             android:textSize="@dimen/sp_14"
+                             >
+                         </TextView>
+                         <TextView
+                             android:layout_width="wrap_content"
+                             android:gravity="center"
+                             android:textSize="@dimen/sp_14"
+                             android:text="@string/login_rbtn_text"
+                             android:layout_height="match_parent">
+                         </TextView>
+                     </LinearLayout>-->
+                  <!--  <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:clickable="true"
+                        android:onClick="@{clickHandler::goNetworkTest}">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="网络测试"
+                            android:textSize="@dimen/sp_14"></TextView>
+                    </LinearLayout>-->
+
+                    <TextView
+                        android:visibility="gone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/color_f59a23"
+                        android:onClick="@{clickHandler::forgotPwd}"
+                        android:text="@string/account_forgot_pwd"
+                        android:textSize="@dimen/sp_14"></TextView>
+                </RelativeLayout>-->
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</layout>

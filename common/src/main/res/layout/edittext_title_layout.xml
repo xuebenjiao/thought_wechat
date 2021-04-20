@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.xbj.common.views.editview.EditTextViewModel" />
+        <variable
+            name="presenter"
+            type="com.xbj.common.views.editview.EditTextView" />
+        <import type="android.view.View" />
+        <import type="android.text.TextUtils" />
+        <import type="androidx.databinding.ObservableField" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_44"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/start_date_tv"
+                android:layout_width="@dimen/dp_80"
+                android:gravity="center"
+                android:paddingRight="@dimen/dp_16"
+                android:paddingLeft="@dimen/dp_4"
+                android:text="@{viewModel.mTitle}"
+                android:layout_height="match_parent">
+            </TextView>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/wabill_no_et"
+                android:paddingLeft="@dimen/dp_10"
+                android:inputType="textPhonetic"
+                android:singleLine="true"
+                android:enabled="@{viewModel.isCanEditConent}"
+                android:maxLines="1"
+                android:imeOptions="actionDone"
+                android:layout_height="@dimen/dp_36"
+                android:textColorHint="@color/btnNotClickOrEtHintColor"
+                android:textSize="@dimen/sp_14"
+                android:text="@={viewModel.content}"
+                android:background="@null"
+                />
+            <!--android:hint="@string/delivery_area_item_note"
+            android:digits="@string/filter_vcode"-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:clickable="true"
+                android:onClick="@{presenter::onClidkDelImg}"
+                android:visibility="@{ TextUtils.isEmpty(viewModel.content) || !viewModel.isCanEditConent ? View.GONE:View.VISIBLE }"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/icon_scan_del"
+                    android:layout_marginRight="@dimen/dp_12"
+                    android:layout_marginLeft="@dimen/dp_12"
+                    android:layout_width="@dimen/dp_24"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/form_del">
+                </ImageView>
+            </LinearLayout>
+        </LinearLayout>
+        <View
+            android:layout_marginTop="@dimen/dp_2"
+            style="@style/ViewLineHorizontalOnePx"/>
+    </LinearLayout>
+
+</layout>

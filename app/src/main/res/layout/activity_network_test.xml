@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="entity"
+            type="com.xbj.common.entity.CommonTitleModel" />
+        <variable
+            name="MyClickHandler"
+            type="com.xbj.common.CommonHandler" />
+        <import type="com.xbj.common.CommonHandler"></import>
+    </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            xmlns:bind="http://schemas.android.com/tools"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:paddingBottom="@dimen/dp_20"
+            android:layout_height="match_parent">
+            <include layout="@layout/comon_title_layout"
+                bind:MyClickHandler="@{MyClickHandler}"
+                bind:entity="@{entity}">
+            </include>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview"
+                android:paddingRight="@dimen/dp_16"
+                android:paddingLeft="@dimen/dp_16"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
+    </ScrollView>
+</layout>

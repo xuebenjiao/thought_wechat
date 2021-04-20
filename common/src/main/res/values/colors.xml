@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="scan_list_exception_order_font">#606266</color>
+    <color name="sdColorWhite">#ffffff</color>
+    <color name="sdColorBlack">#000000</color>
+    <color name="sdColorRed">#ff0000</color>
+    <color name="sdColorGray">#898888</color>
+    <color name="sdColorGrayPress">#f8f8f8</color>
+    <color name="sdColorGrayLine">#f0f0f0</color>
+    <color name="sdColorGray24">#cc424242</color>
+    <color name="sdColorGreen">#00ff26</color>
+    <color name="sdColorBlue">#000dff</color>
+    <color name="sdColorYellow">#ffe100</color>
+    <!--other-->
+    <color name="sdColorCircleNotify">#ff3955</color>
+    <color name="btnNotClickOrEtHintColor">#BFC4CD</color>
+    <color name="GreyWhiteF5">#F5F5F5</color>
+    <color name="color_fff5f7fa">#fff5f7fa</color>
+    <color name="color_2A186F">#2A186F</color>
+    <color name="color_553EFF">#553EFF</color>
+
+    <color name="color_3E2BFF">#3E2BFF</color>
+    <color name="color_3A28FF">#3A28FF</color>
+    <color name="color_999FA6">#999FA6</color>
+<!--    <color name="btn_not_click_color">#1A3A28FF</color>-->
+    <color name="btn_not_click_color">#1A00cb9b</color>
+
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="result_view">#b0000000</color>
+    <color name="cololr_80666666">#80666666</color>
+</resources>

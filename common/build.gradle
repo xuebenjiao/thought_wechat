@@ -1,0 +1,121 @@
+apply plugin: 'com.android.library'
+apply plugin: 'org.greenrobot.greendao' // apply plugin
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        /* testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+         consumerProguardFiles 'consumer-rules.pro'*/
+    }
+    buildTypes {
+        //开发环境
+        debug {
+            /*  debuggable true
+              signingConfig signingConfigs.debug
+              *//*         minifyEnabled true
+                       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'*//*
+  //            buildConfigField 'String', 'SERVER_URL', '"http://192.168.207.186:7060/"'
+              buildConfigField 'String', 'SERVER_URL', '"http://share.test.app.api.ng.agno.top/"'
+              buildConfigField 'String', 'WEBVIEW_URL', '"http://share.test.h5.web.ng.agno.top/#/"'
+              buildConfigField 'String', 'CONTRO_WEBVIEW_URL', '"http://192.168.207.153:8181/cockpit/#/index"'*/
+        }
+        //测试环境
+        check {
+//            debuggable false
+            /* signingConfig signingConfigs.release
+ //            buildConfigField("String", "releaseTime", "\"" + new Date().format("yyyy-MM-dd HH:mm:ss") + "\"")
+             *//**
+             * 自己代码混淆
+             *//*
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'SERVER_URL', '"http://share.test.app.api.ng.agno.top/"'
+            buildConfigField 'String', 'WEBVIEW_URL', '"http://share.test.h5.web.ng.agno.top/#/"'
+            buildConfigField 'String', 'CONTRO_WEBVIEW_URL', '"http://192.168.207.153:8181/cockpit/#/index"'*/
+        }
+        //uat环境
+        uat {
+//            debuggable false
+            /*  signingConfig signingConfigs.release
+  //            buildConfigField("String", "releaseTime", "\"" + new Date().format("yyyy-MM-dd HH:mm:ss") + "\"")
+              *//**
+             * 自己代码混淆
+             *//*
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'SERVER_URL', '"http://share.uat.app.web.ng.agno.top/"'
+            buildConfigField 'String', 'WEBVIEW_URL', '"http://share.uat.h5.web.ng.agno.top/#/"'
+            buildConfigField 'String', 'CONTRO_WEBVIEW_URL', '"http://share.uat.h5.web.ng.agno.top/cockpit/#/index"'*/
+        }
+        release {
+//            debuggable false
+            /* signingConfig signingConfigs.release
+ //            buildConfigField("String", "releaseTime", "\"" + new Date().format("yyyy-MM-dd HH:mm:ss") + "\"")
+             *//**
+             * 自己代码混淆
+             *//*
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'SERVER_URL', '"http://yjtgp-api.yto.net.cn/"'
+            buildConfigField 'String', 'WEBVIEW_URL', '"http://yjtgp-h5.yto.net.cn/#/"'
+            buildConfigField 'String', 'CONTRO_WEBVIEW_URL', '"http://yjtgp-h5.yto.net.cn/cockpit/#/index"'*/
+        }
+        lintOptions {
+            abortOnError false
+        }
+
+    }
+
+    dataBinding{
+        enabled true
+    }
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+    greendao {
+        schemaVersion 12  //数据库版本 测试是  在3的基础上添加了存储自定签收模板表 在4的基础上增加了订单信息是否获取成功的标识
+        // 7->8 该址精准电联加字段  ： 8->9 生鲜加字段  9->10 添加图片上传成功的url 10-11 增加预付单字段 11-12 增加短信发送状态
+        daoPackage 'com.yto.greendao.gen'// 生成代码路径  master session等
+        targetGenDir 'src/main/java' //代码项目路径
+    }
+
+}
+
+dependencies {
+//    api files('libs/BaiduLBS_Android.jar')
+    api 'com.youth.banner:banner:1.4.10'  //最新版本
+    implementation "androidx.cardview:cardview:$rootProject.androidXVersion"
+    //工业机驱动
+    api project(path:':base')
+    api project(path:':previewpic')
+//    api project(path:":progress")
+
+//    api 'com.zhy:percent-support-extends:1.1.1'//百分比适配库
+    api 'org.greenrobot:greendao:3.2.2' // add library
+
+    api 'com.github.bumptech.glide:glide:4.10.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
+
+    api 'com.github.arcadefire:nice-spinner:1.4.4'
+    api 'com.mylhyl:circleDialog:5.0.4'
+//日期选择
+    api 'com.contrarywind:Android-PickerView:4.1.9'
+    api('com.github.gzu-liyujiang.AndroidPicker:WheelPicker:1.5.6.20181018') {
+        exclude group: 'com.android.support'
+    }
+    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-7'
+    api 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-7'//没有使用特殊Header，可以不加这行
+
+/*
+    //微信支付-Android Studio环境下：已改用gradle形式，发布到jcenter，请开发者使用gradle来编译、更新微信SDK。 bq
+    api 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'*/
+//评分控件
+    api 'com.github.giswangsj:AndRatingBar:1.0.3'
+
+}

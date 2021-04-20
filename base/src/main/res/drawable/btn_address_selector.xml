@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 当控件被点击时，控件的背景图为 button_red_pressed-->
+    <item android:drawable="@drawable/bg_ff8040_raius2_shape" android:state_activated="true"></item>
+    <!-- 其他状态下控件的背景图为button_red_normal -->
+    <item android:drawable="@drawable/bg_ffefe9_raius2_shape"></item>
+
+</selector>

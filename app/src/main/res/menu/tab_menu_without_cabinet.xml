@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_home"
+        android:icon="@drawable/menu_home_item_selector"
+        android:title="@string/menu_home" />
+<!--    <item
+        android:id="@+id/menu_locker"
+        android:icon="@drawable/menu_locker_item_selector"
+        android:title="@string/menu_locker" />-->
+    <item
+        android:id="@+id/menu_categories"
+        android:icon="@drawable/menu_categories_item_selector"
+        android:title="统计" />
+
+    <!--<item
+        android:id="@+id/menu_services"
+        android:icon="@drawable/tabbar_crux"
+        android:title="@string/menu_services" />
+-->
+    <item
+        android:id="@+id/menu_account"
+        android:icon="@drawable/menu_account_item_selector"
+        android:title="@string/menu_account" />
+</menu>
