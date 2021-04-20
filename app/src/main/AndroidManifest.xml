@@ -81,18 +81,6 @@
           android:name="com.thoughtwork.comment.application.SPUtilsInitializer"
           android:value="@string/androidx_startup"
           />
-    <!--  <meta-data
-          android:name="com.yto.comment.application.TooLargeToolInitializer"
-          android:value="@string/androidx_startup"
-          />
-      <meta-data
-          android:name="com.yto.comment.application.ZXingLibraryInitializer"
-          android:value="@string/androidx_startup"
-          />-->
-     <!-- <meta-data
-          android:name="com.yto.comment.application.BaiduSDKInitializer"
-          android:value="@string/androidx_startup"
-          />-->
     </provider>
 
   </application>
