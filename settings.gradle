@@ -1,8 +1,3 @@
-//include ':progress'
-//include ':RangeSeekBar'
 include ':previewpic'
-//include ':searchview'
-//include ':easyPhotos'
-//include ':selectCity'
-include ':app', ':base', ':network', ':common',':permission'//, ':webview', ':lib-zxing', ':bluetooth', ':update-library', ':magicindicator','slideBottomlibrary', ':SwipeItem',  ':drive-module'':scan', ':usercenter', ':zbar',':locker',
+include ':app', ':base', ':network', ':common',':permission'
 rootProject.name='thoughtwork'
