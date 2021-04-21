@@ -108,7 +108,7 @@ android {
         //开发环境
         env_dep {
             buildConfigField "int", "ENV_TYPE", "1"
-            applicationId 'com.yto.comment'
+            applicationId 'com.thoughtwork.comment'
             manifestPlaceholders = [
                     app_name: "开_思特沃克",
                     app_icon: "@mipmap/img_logo"
@@ -117,7 +117,7 @@ android {
         //测试环境
         env_test {
             buildConfigField "int", "ENV_TYPE", "2"
-            applicationId 'com.yto.comment'
+            applicationId 'com.thoughtwork.comment'
 //            applicationId 'com.yto.comment.dep'
             manifestPlaceholders = [
                     app_name: "测_思特沃克",
@@ -127,7 +127,7 @@ android {
         //uat环境
         env_uat {
             buildConfigField "int", "ENV_TYPE", "3"
-            applicationId 'com.yto.comment.uat'
+            applicationId 'com.thoughtwork.comment.uat'
             manifestPlaceholders = [
                     app_name: "U_思特沃克",
                     app_icon: "@mipmap/img_logo"
@@ -136,7 +136,7 @@ android {
         //生产环境
         env_release {
             buildConfigField "int", "ENV_TYPE", "4"
-            applicationId 'com.yto.comment'
+            applicationId 'com.thoughtwork.comment'
             manifestPlaceholders = [
                     app_name: "思特沃克",
                     app_icon: "@mipmap/img_logo"

@@ -1,7 +1,12 @@
 package com.xbj.network.common.api;
 
-import com.xbj.network.common.api.response.Comment;
-import com.xbj.network.common.api.response.TweetItemBean;
+
+
+import com.xbj.common.response.Comment;
+import com.xbj.common.response.TweetItemBean;
+import com.xbj.common.views.listItem.PublisherInforItemViewModel;
+
+import java.util.ArrayList;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -15,7 +20,7 @@ import retrofit2.http.GET;
 
 public interface CommonApiInterface {
     @GET("jsmith/tweets")
-    Observable<TweetItemBean> getTweets();
+    Observable<ArrayList<PublisherInforItemViewModel>> getTweets();
 
     @GET("jsmith")
     Observable<Comment.Sender> getUserInfor();

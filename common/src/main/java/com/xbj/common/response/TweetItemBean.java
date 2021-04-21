@@ -1,4 +1,6 @@
-package com.xbj.network.common.api.response;
+package com.xbj.common.response;
+
+import com.xbj.common.views.listItem.PublishPicItemViewModel;
 
 import java.util.ArrayList;
 
@@ -8,10 +10,6 @@ import java.util.ArrayList;
  * Description :Tweets列表请求响应实体对象
  */
 public class TweetItemBean extends Comment {
-   public ArrayList<Image> images;
+   public ArrayList<PublishPicItemViewModel> images;
    public ArrayList<Comment> comments;
-
-    public class Image{
-        String  url;
-    }
 }

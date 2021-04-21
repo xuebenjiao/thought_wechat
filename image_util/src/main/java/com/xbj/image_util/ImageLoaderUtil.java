@@ -15,13 +15,18 @@ import java.util.concurrent.Executors;
  * Description :图片下载工具类
  */
 public  class ImageLoaderUtil {
-    //内存缓存
-    IImageCache mImageCache = new GetCacheDataUtils();
+    //缓存获取工具
+    private IImageCache mImageCache = new GetCacheDataUtils();
 
     //线程池，线程的数量为CPU数，可以同时处理多个缓存线程
     //Runtime.getRuntime().availableProcessors() 得到的就是CPU数
-    ExecutorService mExecutorService = Executors.newFixedThreadPool( Runtime.getRuntime().availableProcessors());
+    private  ExecutorService mExecutorService = Executors.newFixedThreadPool( Runtime.getRuntime().availableProcessors());
 
+    /**
+     * 根据图片连接显示图片
+     * @param url 图片连接
+     * @param imageView 显示图片的控件
+     */
     public void displayImage(final String url, final ImageView imageView){
         Bitmap bitmap = mImageCache.getCache(url) ;
         if (bitmap != null){

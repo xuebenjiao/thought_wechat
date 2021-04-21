@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.xbj.comment">
+    package="com.thoughtwork.comment">
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -17,7 +17,7 @@
           android:label="@string/app_name"-->
 
   <application
-      android:name="com.thoughtwork.comment.application.DeliveryApplication"
+      android:name=".application.DeliveryApplication"
       android:allowBackup="true"
       android:icon="${app_icon}"
       android:label="${app_name}"
@@ -34,7 +34,7 @@
         android:name="org.apache.http.legacy"
         android:required="false" />
 
-    <activity android:name="com.thoughtwork.comment.acitivity.WelComeActivity"
+    <activity android:name=".acitivity.WelComeActivity"
         android:screenOrientation="portrait"
         android:theme="@style/SplashTheme"
         >
@@ -43,6 +43,8 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
+    <activity android:name=".acitivity.ThoughtWorkWeChatActivity"></activity>
+
 
     <provider
         android:authorities="${applicationId}.androidx-startup"
@@ -57,10 +59,10 @@
       也就是("androidx.startup")，否则将不生效。-->
       <!--通过tools:node="remove"来标记该初始化器。这样会在AndroidManifest.xml文件合并时将这个<meta-data>移除掉，
       否则该初始化器仍会在Application中被初始化并标记为已经初始化，后面的懒加载将不执行任何初始化操作，相当于使懒加载失效了。-->
-     <!-- <meta-data
-          android:name="com.yto.comment.application.CCInitializer"
-          android:value="@string/androidx_startup"
-          />-->
+      <!-- <meta-data
+           android:name="com.yto.comment.application.CCInitializer"
+           android:value="@string/androidx_startup"
+           />-->
       <meta-data
           android:name="com.thoughtwork.comment.application.CrashHandlerInitializer"
           android:value="@string/androidx_startup"
@@ -82,6 +84,5 @@
           android:value="@string/androidx_startup"
           />
     </provider>
-
   </application>
 </manifest>

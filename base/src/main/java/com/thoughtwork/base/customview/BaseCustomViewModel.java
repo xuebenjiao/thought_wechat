@@ -10,14 +10,14 @@ import androidx.databinding.BindingAdapter;
 import java.io.Serializable;
 
 public class BaseCustomViewModel extends BaseObservable implements Serializable {
-    public int drawable;
-    @DrawableRes
-    public int getDrawable() {
-        return drawable;
-    }
-    public void setDrawable(@DrawableRes int drawable) {
-        this.drawable = drawable;
-    }
+//    public int drawable;
+//    @DrawableRes
+//    public int getDrawable() {
+//        return drawable;
+//    }
+//    public void setDrawable(@DrawableRes int drawable) {
+//        this.drawable = drawable;
+//    }
 
 /*    @BindingAdapter({"android:src"})
     public static void setImageViewResource(ImageView imageView, int resource) {

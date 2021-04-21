@@ -6,8 +6,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.xbj.common.views.listItem.AddressItemView;
-import com.xbj.common.views.listItem.AddressItemViewViewModel;
 import com.thoughtwork.base.recyclerview.BaseViewHolder;
 
 import java.util.ArrayList;

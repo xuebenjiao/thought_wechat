@@ -30,6 +30,7 @@ import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
@@ -88,7 +89,7 @@ import top.zibin.luban.OnCompressListener;
  * date   : 2019/10/22 17:14
  * desc   :
  */
-public abstract class MvvmActivity<V extends ViewDataBinding,VM extends MvvmBaseViewModel> extends BaseDeviceScannerActivity implements  IBaseView, Observer {
+public abstract class MvvmActivity<V extends ViewDataBinding,VM extends MvvmBaseViewModel> extends AppCompatActivity implements  IBaseView, Observer {
     //是否是管理者
     public boolean mManagerFlag = SPUtils.getIntValue(Constants.ROLE_TYPE) == 1;
     public  final int takeOrSelectPicNum  = 6;
@@ -148,8 +149,6 @@ public abstract class MvvmActivity<V extends ViewDataBinding,VM extends MvvmBase
     //数据结构需要子类去实现
     protected abstract VM getViewModel();
 
-    //获取界面绑定的参数
-//    public abstract int getBindingVariable();
 
     //点击提示信息的回调
     protected abstract void onRetryBtnClick();
@@ -165,10 +164,6 @@ public abstract class MvvmActivity<V extends ViewDataBinding,VM extends MvvmBase
 
             }
         }
-       /* if (getBindingVariable() > 0) {
-            //实现View和Data的绑定
-            viewDatabinding.setVariable(getBindingVariable(), viewModel);
-        }*/
         LiveDataBus.getInstance().with(LiveDataBus.VIEW_STATUS, ViewStatus.class).observe(this, this);
         viewDatabinding.executePendingBindings();
     }
@@ -190,9 +185,7 @@ public abstract class MvvmActivity<V extends ViewDataBinding,VM extends MvvmBase
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        if (mScanManager == null) {
-            mScanManager = BaseApplication.getmScanManager();
-        }
+
         mLocationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         super.onCreate(savedInstanceState);
         getIntentData();
@@ -971,14 +964,7 @@ public abstract class MvvmActivity<V extends ViewDataBinding,VM extends MvvmBase
         return image;
     }
 
-    /**
-     * 打开系统相册
-     */
-    private void openSysAlbum() {
-        EasyPhotos.createAlbum(this, false, GlideEngine.getInstance())
-                .setCount(getSelectPicNum())
-                .start(ALBUM_RESULT_CODE);
-    }
+
 
     public int getSelectPicNum(){
         return 0;

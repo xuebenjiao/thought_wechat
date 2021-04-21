@@ -87,19 +87,10 @@ public class WelComeActivity extends MvvmActivity<ActivityWelcomeLayoutBinding, 
                               }
                           },
                 Manifest.permission.ACCESS_NETWORK_STATE
-//                ,Permission.CALL_PHONE
-  /*              //定位
-                ,Permission.ACCESS_COARSE_LOCATION
-                //定位
-                ,Permission.ACCESS_FINE_LOCATION*/
                 //写错误日志
                 , Permission.WRITE_EXTERNAL_STORAGE
                 //下载
-                , Permission.READ_EXTERNAL_STORAGE,
-                //语音
-//                ,Permission.RECORD_AUDIO,
-                // 获取设备信息
-                Permission.READ_PHONE_STATE
+                , Permission.READ_EXTERNAL_STORAGE
         );
     }
 
@@ -133,26 +124,7 @@ public class WelComeActivity extends MvvmActivity<ActivityWelcomeLayoutBinding, 
      * 登录
      */
     private  void gotoHome(){
-
-      /*  //初始化百度语音 因为离线百度语音播报需要读写权限，所以在此处申请
-        if(!BaiduTTSUtil.getInstance().isInitTTS()){
-            LogUtils.i("TTS没有初始化");
-            //BaseApplication.getsApplication().getApplicationContext()
-            BaiduTTSUtil.getInstance().initBaiduTTS(BaseApplication.getmContext());
-        }
-        buildDeviceSerialId();
-        boolean isJumped2Home = SPUtils.getBooleanValue(Constants.JUMP_TO_HOME_SUCCESS);
-        boolean remeberPwd = SPUtils.getBooleanValue(Constants.REMEBER_PWD);
-        long remeberTimeLong = SPUtils.getLongValue(Constants.REMEBER_PWD_TIME);
-        boolean pwdOverTimeFlag = (System.currentTimeMillis() - remeberTimeLong) > (7 * 24 * 3600 * 1000) ? true : false;
-        //判断本地是否有用户角色，如果没有则进入登录界面
-        boolean roleTyIsEmp=  TextUtils.isEmpty(SPUtils.getStringValue(Constants.ROLE_TYPE))?true:false;
-        if (isJumped2Home && remeberPwd && !pwdOverTimeFlag && !roleTyIsEmp) {
-            startActivity(new Intent(WelComeActivity.this, MainActivity.class));
-        } else {
-            startActivity(new Intent(WelComeActivity.this, LoginActivity.class));
-        }*/
-        startActivity(new Intent(WelComeActivity.this, HomeActvity.class));
+        startActivity(new Intent(WelComeActivity.this, ThoughtWorkWeChatActivity.class));
     }
     @Override
     protected void onStop() {

@@ -2,9 +2,12 @@ package com.xbj.network.common.api;
 
 
 import com.thoughtwork.base.BaseApplication;
+import com.xbj.common.response.Comment;
+import com.xbj.common.response.TweetItemBean;
+import com.xbj.common.views.listItem.PublisherInforItemViewModel;
 import com.xbj.network.ApiBase;
-import com.xbj.network.common.api.response.Comment;
-import com.xbj.network.common.api.response.TweetItemBean;
+
+import java.util.ArrayList;
 
 import io.reactivex.Observer;
 
@@ -37,7 +40,7 @@ public final class CommonApi extends ApiBase {
      * 获取tweets列表
      * @param observer
      */
-    public void getTweets(Observer<TweetItemBean> observer) {
+    public void getTweets(Observer<ArrayList<PublisherInforItemViewModel>> observer) {
         ApiSubscribe(commonApiInterface.getTweets(),observer);
     }
     /**

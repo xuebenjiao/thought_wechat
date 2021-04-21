@@ -7,8 +7,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.thoughtwork.base.customview.BaseCustomViewModel;
 import com.thoughtwork.base.recyclerview.BaseViewHolder;
-import com.xbj.common.views.picturetitleview.PictureTitleView;
-import com.xbj.common.views.picturetitleview.PictureTitleViewViewModel;
+import com.xbj.common.views.listItem.CommentAvatarItemView;
+import com.xbj.common.views.listItem.CommentAvatarItemViewModel;
+import com.xbj.common.views.listItem.CommentContentItemView;
+import com.xbj.common.views.listItem.CommentContentItemViewModel;
+import com.xbj.common.views.listItem.PublisherInforItemView;
+import com.xbj.common.views.listItem.PublisherInforItemViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,13 +24,15 @@ import java.util.List;
  * Description : 扫描列表适配器
  */
 public class RecyclerViewAdapter<T extends BaseCustomViewModel> extends RecyclerView.Adapter<BaseViewHolder> {
-    private ArrayList<T> mItems = new ArrayList<>();
+    private List<T> mItems = new ArrayList<>();
 
-    public ArrayList<T> getmItems() {
+    public List<T> getmItems() {
         return mItems;
     }
 
-    private final int VIEW_TYPE_PICTURE_TITLE = 1;
+    private final int VIEW_TYPE_PULISH_PIC = 1;
+    private final int VIEW_TYPE_COMMENT_AVATAR = 2;
+    private final int VIEW_TYPE_COMMENT_CONTENT = 3;
 
     public RecyclerViewAdapter(){
     }
@@ -35,7 +41,7 @@ public class RecyclerViewAdapter<T extends BaseCustomViewModel> extends Recycler
      * 设置RecyclerView的数据源
      * @param items
      */
-    public void setData(ArrayList<T> items){
+    public void setData(List<T> items){
             mItems = items;
             //使用该方法的更新内部数据集，没有默认的动画效果，同时更新数据的效率页不如上面的方法，官方不推荐使用这种方式更新数据集。官方建议  Don’t call notifyDataSetChanged if you don’t have to.
             notifyDataSetChanged();
@@ -65,12 +71,24 @@ public class RecyclerViewAdapter<T extends BaseCustomViewModel> extends Recycler
     @NonNull
     @Override
     public BaseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        //带图片显示的item
-        if(viewType == VIEW_TYPE_PICTURE_TITLE){
-            PictureTitleView pictureTitleView = new PictureTitleView(parent.getContext());
+
+        if(viewType == VIEW_TYPE_PULISH_PIC){
+            PublisherInforItemView publisherInforItemView = new PublisherInforItemView(parent.getContext());
             RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-            pictureTitleView.setLayoutParams(layoutParams);
-            return  new BaseViewHolder(pictureTitleView);
+            publisherInforItemView.setLayoutParams(layoutParams);
+            return  new BaseViewHolder(publisherInforItemView);
+        }
+       else  if(viewType == VIEW_TYPE_COMMENT_AVATAR){
+            CommentAvatarItemView commentAvatarItemView = new CommentAvatarItemView(parent.getContext());
+            RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+            commentAvatarItemView.setLayoutParams(layoutParams);
+            return  new BaseViewHolder(commentAvatarItemView);
+        }
+       else if(viewType == VIEW_TYPE_COMMENT_CONTENT){
+            CommentContentItemView commentContentItemView = new CommentContentItemView(parent.getContext());
+            RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+            commentContentItemView.setLayoutParams(layoutParams);
+            return  new BaseViewHolder(commentContentItemView);
         }
 
         return null;
@@ -92,9 +110,16 @@ public class RecyclerViewAdapter<T extends BaseCustomViewModel> extends Recycler
 
     @Override
     public int getItemViewType(int position) {
-        if(mItems.get(position) instanceof PictureTitleViewViewModel){
-            return VIEW_TYPE_PICTURE_TITLE;
+        if(mItems.get(position) instanceof PublisherInforItemViewModel){
+            return VIEW_TYPE_PULISH_PIC;
         }
+        else if(mItems.get(position) instanceof CommentContentItemViewModel){
+            return VIEW_TYPE_COMMENT_CONTENT;
+        }
+        else if(mItems.get(position) instanceof CommentAvatarItemViewModel){
+            return VIEW_TYPE_COMMENT_AVATAR;
+        }
+
         return -1;
     }
     /**

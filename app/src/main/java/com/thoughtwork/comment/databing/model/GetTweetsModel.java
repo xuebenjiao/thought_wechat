@@ -1,10 +1,12 @@
 package com.thoughtwork.comment.databing.model;
 
 import com.thoughtwork.base.model.BaseModel;
+import com.xbj.common.views.listItem.PublisherInforItemViewModel;
 import com.xbj.network.common.api.CommonApi;
-import com.xbj.network.common.api.response.TweetItemBean;
 import com.xbj.network.errorhandler.ExceptionHandle;
 import com.xbj.network.observer.BaseObserver;
+
+import java.util.ArrayList;
 
 
 /**
@@ -12,13 +14,13 @@ import com.xbj.network.observer.BaseObserver;
  * Author:xbj
  * Description :获取tweet列表model
  */
-public  class GetTweetsModel extends BaseModel<TweetItemBean> {
+public  class GetTweetsModel extends BaseModel<ArrayList<PublisherInforItemViewModel>> {
     @Override
     public void refresh() {
     }
     @Override
     public void load() {
-        CommonApi.getInstance().getTweets(new BaseObserver<TweetItemBean>(null) {
+        CommonApi.getInstance().getTweets(new BaseObserver<ArrayList<PublisherInforItemViewModel>>(null) {
 
             @Override
             public void onError(ExceptionHandle.ResponeThrowable e) {
@@ -28,7 +30,7 @@ public  class GetTweetsModel extends BaseModel<TweetItemBean> {
             }
 
             @Override
-            public void onNext(TweetItemBean tweetItemBean) {
+            public void onNext(ArrayList<PublisherInforItemViewModel> tweetItemBean) {
                 loadSuccess(tweetItemBean);
             }
         });
