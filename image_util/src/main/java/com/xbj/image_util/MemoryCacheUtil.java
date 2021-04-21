@@ -22,7 +22,7 @@ public class MemoryCacheUtil implements IImageCache{
      * @param bitmap 图片链接对应的bitmap
      */
     @Override
-    public void put(String url, Bitmap bitmap) {
+    public void putCache(String url, Bitmap bitmap) {
         mImageCache.put(url, bitmap);
     }
     /**
@@ -31,7 +31,7 @@ public class MemoryCacheUtil implements IImageCache{
      * @return
      */
     @Override
-    public Bitmap get(String url) {
+    public Bitmap getCache(String url) {
         return mImageCache.get(url);
     }
 

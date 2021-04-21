@@ -2,6 +2,7 @@ package com.thoughtwork.base.utils;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Environment;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -31,7 +32,7 @@ import java.util.Locale;
  */
 public class FileUtil {
 
-    public static final String PACKAGE_NAME = "com.yto.delivery"; // 应用程序包名
+    public static final String PACKAGE_NAME = "com.xbj.comment"; // 应用程序包名
     public static final String DB_PATH = "/data" + Environment.getDataDirectory().getAbsolutePath() + "/"
             + PACKAGE_NAME + "/" + "helpcontent.json"; // 数据保存的路径
 
@@ -71,6 +72,36 @@ public class FileUtil {
         return sdDir.toString();
 
     }
+
+    /**
+     * 获取一个可以缓存数据的目录
+     * 优先获取SD目录
+     */
+    public static String getCanCacheDataPath(Context context){
+        String cachePath = null;
+        // 优先保存到SD卡中
+        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){
+                if (context != null) {
+                    cachePath = context.getExternalFilesDir("").getAbsolutePath()+ File.separator
+                            + AppConstants.DownloadFolderName;
+                }
+            }
+            else {
+                cachePath = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator
+                        + AppConstants.DownloadFolderName;
+            }
+        } else {// 如果SD卡不存在，就保存到本应用的目录下
+            if (context != null) {
+                cachePath = context.getFilesDir().getAbsolutePath() + File.separator
+                        + AppConstants.DownloadFolderName;
+            }
+
+        }
+        return cachePath;
+    }
+
+
 
     /**
      * 删除文件
