@@ -6,10 +6,9 @@ import com.thoughtwork.base.utils.LiveDataBus;
 import com.thoughtwork.base.utils.LogUtils;
 import com.thoughtwork.base.viewmodel.ViewStatus;
 
-import org.simple.eventbus.EventBus;
-
 import java.io.IOException;
 import java.net.SocketTimeoutException;
+
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;

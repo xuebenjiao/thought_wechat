@@ -1,13 +1,4 @@
-//apply plugin: 'com.android.application'
-ext.mainApp = true
-apply from: rootProject.file('cc-settings-2.gradle')
-//腾讯bug管理插件
-//apply plugin: 'bugly'
-//bugly {
-//    appId = '5fbaeb6c2f' // 注册时分配的App ID
-//    appKey = 'e77d994f-cd79-4f48-879c-052fcfc51fa7' // 注册时分配的App Key
-//    debug = true
-//}
+apply plugin: 'com.android.application'
 android {
     compileSdkVersion rootProject.compileSdkVersion
     buildToolsVersion rootProject.buildToolsVersion
@@ -43,11 +34,6 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
-
-    //doNotStrip "*/*/libyuv2.so" 不需要对应架构
-    //exclude 'META-INF/rxjava.properties' 排除
-    //pickFirst 'lib/*/libmyJNI.so' 选择首项
-    //
     //链接：https://www.jianshu.com/p/45192f432787 解决项目中多so文件引用
     packagingOptions {
         pickFirst 'lib/*/libzbarex.so'
@@ -82,7 +68,7 @@ android {
             debuggable true
             signingConfig signingConfigs.debug
             /*app服务端地址*/
-            buildConfigField 'String', 'SERVER_URL', '"thoughtworks-ios.herokuapp.com/user/"'
+            buildConfigField 'String', 'SERVER_URL', '"http://thoughtworks-ios.herokuapp.com/user/"'
         }
 
         release {
@@ -93,7 +79,7 @@ android {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             /*app服务端地址*/
-            buildConfigField 'String', 'SERVER_URL', '"thoughtworks-ios.herokuapp.com/user/"'
+            buildConfigField 'String', 'SERVER_URL', '"http://thoughtworks-ios.herokuapp.com/user/"'
         }
         lintOptions {
             abortOnError false
@@ -102,34 +88,12 @@ android {
     }
     flavorDimensions("")
     productFlavors {
-        /*    FUN{
-                dimension "FUN"
-            }*/
         //开发环境
         env_dep {
             buildConfigField "int", "ENV_TYPE", "1"
             applicationId 'com.thoughtwork.comment'
             manifestPlaceholders = [
                     app_name: "开_思特沃克",
-                    app_icon: "@mipmap/img_logo"
-            ]
-        }
-        //测试环境
-        env_test {
-            buildConfigField "int", "ENV_TYPE", "2"
-            applicationId 'com.thoughtwork.comment'
-//            applicationId 'com.yto.comment.dep'
-            manifestPlaceholders = [
-                    app_name: "测_思特沃克",
-                    app_icon: "@mipmap/img_logo"
-            ]
-        }
-        //uat环境
-        env_uat {
-            buildConfigField "int", "ENV_TYPE", "3"
-            applicationId 'com.thoughtwork.comment.uat'
-            manifestPlaceholders = [
-                    app_name: "U_思特沃克",
                     app_icon: "@mipmap/img_logo"
             ]
         }
@@ -163,10 +127,6 @@ android {
             }
     }
 
-}
-//打包时间
-def buildTime() {
-//    return new Date().format("yyyy_MM_dd", TimeZone.getTimeZone("UTC"))
 }
 
 dependencies {

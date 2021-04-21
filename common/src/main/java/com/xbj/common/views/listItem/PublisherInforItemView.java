@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.thoughtwork.base.customview.BaseCustomView;
+import com.thoughtwork.base.utils.ScreenUtil;
 import com.xbj.common.R;
 import com.xbj.common.databinding.PublisherInforItemViewBinding;
 import com.xbj.common.views.adapter.RecyclerViewAdapter;
@@ -23,19 +24,24 @@ public class PublisherInforItemView extends BaseCustomView<PublisherInforItemVie
     private  Context mContext;
 
     public PublisherInforItemView(Context context) {
+
         super(context);
+        this.mContext = context;
     }
 
     public PublisherInforItemView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.mContext = context;
     }
 
     public PublisherInforItemView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        this.mContext = context;
     }
 
     public PublisherInforItemView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+        this.mContext = context;
     }
 
     @Override
@@ -45,13 +51,11 @@ public class PublisherInforItemView extends BaseCustomView<PublisherInforItemVie
 
     @Override
     protected void setDataToView(PublisherInforItemViewModel data) {
-        getDataBinding().setPageModel(data);
-        //展示发布的图片
+       //展示发布的图片
         if(data.images != null && data.images.size() >0){
             int imageSize = data.images.size();
             RecyclerViewAdapter  adapter = new RecyclerViewAdapter();
-
-            getDataBinding().publishPicList.setHasFixedSize(true);
+//            getDataBinding().publishPicList.setHasFixedSize(true);
             //如果是只有一张,则展示一站大图
             if(imageSize == 1) {
                 getDataBinding().publishPicList.setLayoutManager(new LinearLayoutManager(mContext));
@@ -59,7 +63,6 @@ public class PublisherInforItemView extends BaseCustomView<PublisherInforItemVie
             //如果是2~3张则有几张分布几列
             else if(imageSize >1 && imageSize <= 3){
                 getDataBinding().publishPicList.setLayoutManager(new GridLayoutManager(mContext,imageSize));
-
             }
             //如果是四张则分布两列
             else if( imageSize ==4){
@@ -72,14 +75,13 @@ public class PublisherInforItemView extends BaseCustomView<PublisherInforItemVie
             adapter.setData(data.images);
             getDataBinding().publishPicList.setAdapter(adapter);
         }
-
         //展示参与评论/点赞用户的头像
         if(data.comments != null && data.comments.size() >0){
-            //头像展示
-            int commentCount =    data.comments.size();
+
             int oneAvatarWidth = (int) mContext.getResources().getDimension(R.dimen.dp_46);
-            int parentWidth = getDataBinding().commentAvatarList.getWidth();
-            int oneLineShowCount = parentWidth / oneAvatarWidth;
+            int marginLeft = (int) mContext.getResources().getDimension(R.dimen.dp_50);
+            int parentWidth =    ScreenUtil.getDisplayWidth();
+            int oneLineShowCount = parentWidth - marginLeft  / oneAvatarWidth;
             getDataBinding().commentAvatarList.setLayoutManager(new GridLayoutManager(mContext,oneLineShowCount));
             RecyclerViewAdapter<CommentAvatarItemViewModel>  adapter = new RecyclerViewAdapter<CommentAvatarItemViewModel>();
             ArrayList<CommentAvatarItemViewModel> list = new ArrayList<CommentAvatarItemViewModel>();
@@ -91,15 +93,13 @@ public class PublisherInforItemView extends BaseCustomView<PublisherInforItemVie
             adapter.setData(list);
             getDataBinding().commentAvatarList.setAdapter(adapter);
 
-
             //展示评论
-            getDataBinding().commentContentList.setLayoutManager(new LinearLayoutManager(mContext));
+     /*       getDataBinding().commentContentList.setLayoutManager(new LinearLayoutManager(mContext));
             RecyclerViewAdapter<CommentContentItemViewModel>  commentContentAdapter = new RecyclerViewAdapter<CommentContentItemViewModel>();
             commentContentAdapter.setData(data.comments);
-            getDataBinding().commentContentList.setAdapter(commentContentAdapter);
-
-
+            getDataBinding().commentContentList.setAdapter(commentContentAdapter);*/
         }
+        getDataBinding().setPageModel(data);
     }
 
     @Override

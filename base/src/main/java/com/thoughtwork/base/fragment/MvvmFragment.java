@@ -27,8 +27,6 @@ import com.thoughtwork.base.viewmodel.IMvvmBaseViewModel;
 import com.xbj.base.R;
 import com.thoughtwork.base.activity.MvvmActivity;
 
-import org.simple.eventbus.Subscriber;
-
 /**
  * author : xbj
  * e-mail : xbjzhu@163.com
@@ -236,11 +234,7 @@ public abstract class MvvmFragment<V extends ViewDataBinding,VM extends IMvvmBas
         }
     }
 
-    public  void showTokenOverTimeDialog(String message) {
-        if(mHostActivity != null) {
-            mHostActivity.showTokenOverTimeDialog(message);
-        }
-    }
+
     public void requestPermission(MvvmActivity.PermissionQuestListener callback,String... permissions){
         mHostActivity.requestPermission(callback,permissions);
     }

@@ -15,6 +15,14 @@ import java.util.concurrent.Executors;
  * Description :图片下载工具类
  */
 public  class ImageLoaderUtil {
+    private static ImageLoaderUtil instance;
+    private ImageLoaderUtil (){}
+    public static synchronized ImageLoaderUtil getInstance() {
+        if (instance == null) {
+            instance = new ImageLoaderUtil();
+        }
+        return instance;
+    }
     //缓存获取工具
     private IImageCache mImageCache = new GetCacheDataUtils();
 

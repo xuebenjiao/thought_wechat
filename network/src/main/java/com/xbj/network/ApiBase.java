@@ -15,8 +15,6 @@ import com.xbj.network.interceptor.RequestInterceptor;
 import com.xbj.network.interceptor.ResponseInterceptor;
 import com.thoughtwork.base.utils.LogUtils;
 
-import org.simple.eventbus.EventBus;
-
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
@@ -73,16 +71,6 @@ public abstract class ApiBase {
 //                .sslSocketFactory()//添加证书
                 .readTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS);
-
-
-
-        /*可以统一添加网络参数到请求头*/
-    /*    if(sHttpsRequestInterceptor != null) {
-            okHttpClient.addInterceptor(sHttpsRequestInterceptor);
-        }*/
-//        if(sHttpsResponseInterceptor != null) {
-//            okHttpClient.addInterceptor(sHttpsResponseInterceptor);
-//        }
         if(networkRequestInfo != null){
             okHttpClient.addInterceptor( new RequestInterceptor(networkRequestInfo));
         }
@@ -108,9 +96,6 @@ public abstract class ApiBase {
     public  void ApiSubscribe(Observable observable, Observer observer,boolean...isNeedLoading) {
         try{
             if(NetWorkUtil.isAvailable(BaseApplication.getmContext())) {
-                //验证请求拦截器是否未null
-//                validataRequestIntercepter();
-
                 if(isNeedLoading != null &&  isNeedLoading.length != 0 && !isNeedLoading[0]) {
                 }
                 else{
@@ -181,26 +166,10 @@ public abstract class ApiBase {
         public ObservableSource apply(Observable upstream) {
             //onErrorResumeNext当发生错误的时候，由另外一个Observable来代替当前的Observable并继续发射数据
             return (Observable<T>) upstream
-                    /*   //上游处理线程
-                       .subscribeOn(Schedulers.io())
-                       //下游处理线程
-                       .observeOn(AndroidSchedulers.mainThread())*/
                     .map(new AppDataErrorHandler())/*返回的数据统一错误处理*/
                     .onErrorResumeNext(new HttpErrorHandler<T>());/*Http 错误处理**/
         }
     }
-
-   /* public static RequestInterceptor getsHttpsRequestInterceptor() {
-        return sHttpsRequestInterceptor;
-    }
-
-    public static ResponseInterceptor getsHttpsResponseInterceptor() {
-        return sHttpsResponseInterceptor;
-    }
-
-    public static void setsHttpsRequestInterceptor(RequestInterceptor sHttpsRequestInterceptor) {
-        ApiBase.sHttpsRequestInterceptor = sHttpsRequestInterceptor;
-    }*/
 
 
 }

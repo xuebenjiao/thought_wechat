@@ -7,9 +7,6 @@
         <variable
             name="pageModel"
             type="com.xbj.common.views.listItem.PublishPicItemViewModel" />
-        <variable
-            name="pictureTitleView"
-            type="com.xbj.common.views.listItem.PublisherInforItemView" />
 
         <import type="android.view.View" />
         <import type="android.text.TextUtils" />
@@ -22,6 +19,7 @@
             android:id="@+id/img_aatar"
             android:layout_marginTop="@dimen/dp_6"
             android:layout_marginBottom="@dimen/dp_6"
+            android:layout_marginRight="@dimen/dp_4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/place_holder_pic"

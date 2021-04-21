@@ -9,8 +9,6 @@ import android.widget.LinearLayout;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 
-import com.nalan.swipeitem.recyclerview.SwipeItemLayout;
-
 public abstract class BaseCustomView<T extends ViewDataBinding, S extends BaseCustomViewModel> extends LinearLayout implements ICustomView<S>, View.OnClickListener {
 
     private T dataBinding;

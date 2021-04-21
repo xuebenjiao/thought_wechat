@@ -1,6 +1,6 @@
 package com.thoughtwork.base.utils;
 
-import org.apache.commons.codec.binary.Base64;
+import android.util.Base64;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
@@ -136,8 +136,8 @@ public class MD5Util {
             messagedigest.update(psw.getBytes(charset)); // 用明文字符串计算消息摘要。
             byte[] abyte0 = messagedigest.digest(); // 读取消息摘要。
 
-            String password = new String(Base64.encodeBase64(abyte0));
-            return password;
+//            String password = new String(Base64.encodeBase64(abyte0));
+            return "";
         } catch (Exception e) {
             throw new RuntimeException("数据加密出现异常!", e);
         }

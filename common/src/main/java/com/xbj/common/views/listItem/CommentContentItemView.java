@@ -32,7 +32,7 @@ public class CommentContentItemView extends BaseCustomView<CommentContentItemVie
 
     @Override
     protected int setViewLayoutId() {
-        return R.layout.comment_avatar_item_view;
+        return R.layout.comment_content_item_view;
     }
 
     @Override

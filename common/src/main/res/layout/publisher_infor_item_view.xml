@@ -21,7 +21,7 @@
                 android:id="@+id/img_avatar"
                 android:layout_marginTop="@dimen/dp_10"
                 android:layout_marginBottom="@dimen/dp_6"
-                android:layout_width="@dimen/dp_70"
+                android:layout_width="@dimen/dp_50"
                 android:src="@drawable/place_holder_pic"
                 android:scaleType="fitXY"
                 roundiv:radius="@dimen/dp_10"
@@ -30,7 +30,7 @@
                 roundiv:right_bottom_radius="@dimen/dp_10"
                 roundiv:right_top_radius="@dimen/dp_10"
                 loadImageUrl="@{pageModel.sender.avatar}"
-                android:layout_height="@dimen/dp_70"/>
+                android:layout_height="@dimen/dp_50"/>
             <LinearLayout
                 android:id="@+id/author_layout"
                 android:layout_marginLeft="@dimen/dp_4"
@@ -39,34 +39,40 @@
                 android:orientation="vertical"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:gravity="center|left"
                     android:text="@{pageModel.sender.nick}"
                     android:layout_height="@dimen/dp_40">
                 </TextView>
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:gravity="center|left"
+                    android:textColor="@color/color_333333"
+                    android:singleLine="true"
+                    android:ellipsize="end"
                     android:text="@{pageModel.content}"
                     android:layout_height="@dimen/dp_40">
                 </TextView>
-
             </LinearLayout>
         </RelativeLayout>
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginLeft="@dimen/dp_70"
+            android:layout_marginLeft="@dimen/dp_54"
             android:id="@+id/publish_pic_list"
             android:layout_below="@id/author_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </androidx.recyclerview.widget.RecyclerView>
+
         <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginLeft="@dimen/dp_50"
             android:id="@+id/comment_avatar_list"
             android:layout_below="@id/author_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </androidx.recyclerview.widget.RecyclerView>
+
         <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginLeft="@dimen/dp_50"
             android:id="@+id/comment_content_list"
             android:layout_below="@id/author_layout"
             android:layout_width="match_parent"

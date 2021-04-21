@@ -68,10 +68,6 @@
           android:value="@string/androidx_startup"
           />
       <meta-data
-          android:name="com.thoughtwork.comment.application.DbHelperInitializer"
-          android:value="@string/androidx_startup"
-          />
-      <meta-data
           android:name="com.thoughtwork.comment.application.LoadSirInitializer"
           android:value="@string/androidx_startup"
           />

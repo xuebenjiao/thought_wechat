@@ -7,13 +7,14 @@ import android.view.View;
 import com.thoughtwork.base.customview.BaseCustomView;
 import com.xbj.common.R;
 import com.xbj.common.databinding.CommentAvatarItemViewBinding;
+import com.xbj.common.databinding.PublishPicItemViewBindingImpl;
 
 /**
  * Time :2021/4/21
  * Author:xbj
  * Description :发布内容相关图片展示视图
  */
-public class PublishPicItemView extends BaseCustomView<CommentAvatarItemViewBinding, CommentAvatarItemViewModel> {
+public class PublishPicItemView extends BaseCustomView<PublishPicItemViewBindingImpl, PublishPicItemViewModel> {
     public PublishPicItemView(Context context) {
         super(context);
     }
@@ -32,11 +33,11 @@ public class PublishPicItemView extends BaseCustomView<CommentAvatarItemViewBind
 
     @Override
     protected int setViewLayoutId() {
-        return R.layout.comment_avatar_item_view;
+        return R.layout.publish_pic_item_view;
     }
 
     @Override
-    protected void setDataToView(CommentAvatarItemViewModel data) {
+    protected void setDataToView(PublishPicItemViewModel data) {
         getDataBinding().setPageModel(data);
 
     }

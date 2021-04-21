@@ -5,10 +5,6 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Handler;
 
-import com.hprt.m300lib.HidConncetUtil;
-import com.thoughtwork.base.baidu.LocationService;
-import com.zltd.scan.ScanUtils;
-import com.zltd.utils.DeviceUtils;
 
 /**
  * author : xbj
@@ -17,8 +13,6 @@ import com.zltd.utils.DeviceUtils;
  * desc   :
  */
 public class BaseApplication extends Application {
-    public LocationService locationService;
-    public HidConncetUtil mHidConncetUtil;
     //    public HPRTHelper mHelper;
     public static final Handler sHandler = new Handler();
     //OOM won't happen
@@ -31,7 +25,7 @@ public class BaseApplication extends Application {
     public static String mVersionName;
     public static String mApplicationId;
     public static String mAppVersion;
-    private static ScanUtils mScanManager;
+
 
     //1 为开发，2 测试，3 uat,4生产
     public static int envType;
@@ -39,19 +33,6 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         mContext = this;
-        //判断是否是手机
-        DeviceUtils.hasAppAuth();
-        //设置相关参数
-        locationService = new LocationService(getApplicationContext());
-        //4.0以上才支持HID模式
-        if (Build.VERSION.SDK_INT >= 14) {
-            mHidConncetUtil = new HidConncetUtil(this);
-//            HPRTHelper.getHPRTHelper(this);
-        }
-        if(!DeviceUtils.isMobilePhone) {
-            mScanManager = ScanUtils.getInstance(this);
-            mScanManager.init();//开启扫描头
-        }
     }
 
     public static Context getmContext() {
@@ -73,13 +54,7 @@ public class BaseApplication extends Application {
     public  void setAppVersion(String appVersion) {
         mAppVersion = appVersion;
     }
-    public static ScanUtils getmScanManager() {
-        return mScanManager;
-    }
 
-    public static void setmScanManager(ScanUtils mScanManager) {
-        BaseApplication.mScanManager = mScanManager;
-    }
     //    BuildConfig 由于每个模块都有这个类，所以使用BuildConfig.DEBUG容易混乱
     public void setsDebug(boolean isDebug){
         sDebug = isDebug;

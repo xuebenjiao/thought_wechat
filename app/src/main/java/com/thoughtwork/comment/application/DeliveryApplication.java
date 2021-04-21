@@ -12,9 +12,7 @@ import com.thoughtwork.base.utils.ActivityManager;
 import com.thoughtwork.base.utils.FUtils;
 import com.thoughtwork.base.utils.LogUtils;
 import com.thoughtwork.base.utils.exception.C;
-import com.xbj.comment.BuildConfig;
-
-//import com.github.anrwatchdog.ANRWatchDog;
+import com.thoughtwork.comment.BuildConfig;
 
 /**
  * author : xbj
@@ -35,13 +33,7 @@ public class DeliveryApplication extends BaseApplication {
             C.init(this);
             setsDebug(BuildConfig.DEBUG);
             setServerUrl(BuildConfig.SERVER_URL);
-            setWebviewUrl(BuildConfig.WEBVIEW_URL);
-            setMsgWebviewUrl(BuildConfig.MESSAGE_WEBVIEW_URL);
-            setControWebviewUrl(BuildConfig.CONTRO_WEBVIEW_URL);
             setApplicationId(BuildConfig.APPLICATION_ID);
-            setAppVersion( String.valueOf(BuildConfig.VERSION_CODE));
-            setVersionName(BuildConfig.VERSION_NAME);
-            setEnvType(BuildConfig.ENV_TYPE);
             registerActivityListener();
             LogUtils.i(TAG,"end:"+ (System.currentTimeMillis() - startTime));
 

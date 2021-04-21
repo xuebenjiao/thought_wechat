@@ -1,7 +1,5 @@
 package com.xbj.network.errorhandler;
 
-import org.simple.eventbus.EventBus;
-
 import io.reactivex.Observable;
 import io.reactivex.functions.Function;
 

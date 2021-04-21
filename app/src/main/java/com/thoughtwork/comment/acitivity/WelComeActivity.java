@@ -10,13 +10,13 @@ import android.os.Handler;
 import androidx.annotation.Nullable;
 
 import com.gyf.immersionbar.ImmersionBar;
+import com.thoughtwork.comment.R;
+import com.thoughtwork.comment.databinding.ActivityWelcomeLayoutBinding;
 import com.yanzhenjie.permission.runtime.Permission;
 import com.thoughtwork.base.BaseApplication;
 import com.thoughtwork.base.activity.MvvmActivity;
 import com.thoughtwork.base.utils.ToastUtil;
 import com.thoughtwork.base.viewmodel.MvvmBaseViewModel;
-import com.xbj.comment.R;
-import com.xbj.comment.databinding.ActivityWelcomeLayoutBinding;
 import com.xbj.network.ApiBase;
 import com.xbj.network.interceptor.NetworkRequestInfo;
 

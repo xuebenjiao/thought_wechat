@@ -10,9 +10,9 @@ import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.thoughtwork.base.activity.MvvmActivity;
 import com.thoughtwork.base.utils.LiveDataBus;
+import com.thoughtwork.comment.R;
+import com.thoughtwork.comment.databinding.ActivityThoughtWorkWechatLayoutBinding;
 import com.thoughtwork.comment.databing.viewmodel.TweetItemViewModel;
-import com.xbj.comment.R;
-import com.xbj.comment.databinding.ActivityThoughtWorkWechatLayoutBinding;
 import com.xbj.common.views.adapter.RecyclerViewAdapter;
 import com.xbj.common.views.listItem.PublisherInforItemViewModel;
 
@@ -67,6 +67,7 @@ public class ThoughtWorkWeChatActivity extends MvvmActivity<ActivityThoughtWorkW
                     pageNo++;
                     if(mOriginDataList.size() >= pageNo * pageLimit ){
                         mIsLastPage = true;
+                        viewDatabinding.refreshLayout.setNoMoreData(mIsLastPage);
                         mTweetAdapter.setData(mOriginDataList);
                     }
                     else{
@@ -74,14 +75,17 @@ public class ThoughtWorkWeChatActivity extends MvvmActivity<ActivityThoughtWorkW
                         list = mOriginDataList.subList(0,pageNo * pageLimit-1);
                         mTweetAdapter.setData(list);
                     }
+                    finishListReFreshLoadMore();
                 }
-
             }
         });
         viewDatabinding.refreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                mIsLastPage = false;
+                viewDatabinding.refreshLayout.setNoMoreData(mIsLastPage);
                 queryDataForFirstPage();
+                finishListReFreshLoadMore();
             }
         });
     }
@@ -108,6 +112,7 @@ public class ThoughtWorkWeChatActivity extends MvvmActivity<ActivityThoughtWorkW
         if(mOriginDataList.size() <= 5) {
             mIsLastPage = true;
             mTweetAdapter.setData(mOriginDataList);
+            viewDatabinding.refreshLayout.setNoMoreData(mIsLastPage);
         }
         else{
             List<PublisherInforItemViewModel> list = new ArrayList<PublisherInforItemViewModel>();
@@ -124,5 +129,15 @@ public class ThoughtWorkWeChatActivity extends MvvmActivity<ActivityThoughtWorkW
         viewDatabinding.listview.setHasFixedSize(true);
         viewDatabinding.listview.setLayoutManager(new LinearLayoutManager(this));
         viewDatabinding.listview.setAdapter(mTweetAdapter);
+    }
+    /**
+     * 结束下来刷新
+     */
+    @Override
+    public void finishListReFreshLoadMore() {
+        if(viewDatabinding != null && viewDatabinding.refreshLayout != null) {
+            viewDatabinding.refreshLayout.finishLoadMore();
+            viewDatabinding.refreshLayout.finishRefresh();
+        }
     }
 }

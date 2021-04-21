@@ -11,6 +11,8 @@ import com.xbj.common.views.listItem.CommentAvatarItemView;
 import com.xbj.common.views.listItem.CommentAvatarItemViewModel;
 import com.xbj.common.views.listItem.CommentContentItemView;
 import com.xbj.common.views.listItem.CommentContentItemViewModel;
+import com.xbj.common.views.listItem.PublishPicItemView;
+import com.xbj.common.views.listItem.PublishPicItemViewModel;
 import com.xbj.common.views.listItem.PublisherInforItemView;
 import com.xbj.common.views.listItem.PublisherInforItemViewModel;
 
@@ -30,9 +32,10 @@ public class RecyclerViewAdapter<T extends BaseCustomViewModel> extends Recycler
         return mItems;
     }
 
-    private final int VIEW_TYPE_PULISH_PIC = 1;
+    private final int VIEW_TYPE_PULISH_INFOR = 1;
     private final int VIEW_TYPE_COMMENT_AVATAR = 2;
     private final int VIEW_TYPE_COMMENT_CONTENT = 3;
+    private final int VIEW_TYPE_PULISH_PIC = 4;
 
     public RecyclerViewAdapter(){
     }
@@ -72,7 +75,7 @@ public class RecyclerViewAdapter<T extends BaseCustomViewModel> extends Recycler
     @Override
     public BaseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        if(viewType == VIEW_TYPE_PULISH_PIC){
+        if(viewType == VIEW_TYPE_PULISH_INFOR){
             PublisherInforItemView publisherInforItemView = new PublisherInforItemView(parent.getContext());
             RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
             publisherInforItemView.setLayoutParams(layoutParams);
@@ -89,6 +92,12 @@ public class RecyclerViewAdapter<T extends BaseCustomViewModel> extends Recycler
             RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
             commentContentItemView.setLayoutParams(layoutParams);
             return  new BaseViewHolder(commentContentItemView);
+        }
+       else if(viewType == VIEW_TYPE_PULISH_PIC){
+            PublishPicItemView publishPicItemView = new PublishPicItemView(parent.getContext());
+            RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+            publishPicItemView.setLayoutParams(layoutParams);
+            return  new BaseViewHolder(publishPicItemView);
         }
 
         return null;
@@ -111,13 +120,16 @@ public class RecyclerViewAdapter<T extends BaseCustomViewModel> extends Recycler
     @Override
     public int getItemViewType(int position) {
         if(mItems.get(position) instanceof PublisherInforItemViewModel){
-            return VIEW_TYPE_PULISH_PIC;
+            return VIEW_TYPE_PULISH_INFOR;
         }
         else if(mItems.get(position) instanceof CommentContentItemViewModel){
             return VIEW_TYPE_COMMENT_CONTENT;
         }
         else if(mItems.get(position) instanceof CommentAvatarItemViewModel){
             return VIEW_TYPE_COMMENT_AVATAR;
+        }
+        else if(mItems.get(position) instanceof PublishPicItemViewModel){
+            return VIEW_TYPE_PULISH_PIC;
         }
 
         return -1;
