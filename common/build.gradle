@@ -91,7 +91,6 @@ dependencies {
 //    api files('libs/BaiduLBS_Android.jar')
     api 'com.youth.banner:banner:1.4.10'  //最新版本
     implementation "androidx.cardview:cardview:$rootProject.androidXVersion"
-    //工业机驱动
     api project(path:':base')
     api project(path:':previewpic')
 //    api project(path:":progress")

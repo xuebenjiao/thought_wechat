@@ -1,3 +1,4 @@
+include ':image_util'
 include ':previewpic'
 include ':app', ':base', ':network', ':common',':permission'
 rootProject.name='thoughtwork'

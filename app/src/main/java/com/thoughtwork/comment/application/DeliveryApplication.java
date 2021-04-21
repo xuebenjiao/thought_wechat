@@ -33,8 +33,6 @@ public class DeliveryApplication extends BaseApplication {
         //只有在主进程的时候，初始化一次W
         if (FUtils.isSpecifyProcess(this, getPackageName())) {
             C.init(this);
-//            new ANRWatchDog().start();
-//            initBugly();
             setsDebug(BuildConfig.DEBUG);
             setServerUrl(BuildConfig.SERVER_URL);
             setWebviewUrl(BuildConfig.WEBVIEW_URL);
