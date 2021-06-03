@@ -4,7 +4,7 @@ buildscript {
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
         jcenter()
         google()
-        maven { url 'http://10.130.132.94:8081/repository/Android_Hosted/'}
+//        maven { url 'http://10.130.132.94:8081/repository/Android_Hosted/'}
         maven { url 'https://dl.google.com/dl/android/maven2/' }
         maven { url 'https://dl.bintray.com/guardian/android' }
         maven { url "https://jitpack.io" }
@@ -34,7 +34,7 @@ allprojects {
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
         jcenter()
         google()
-        maven { url 'http://10.130.132.94:8081/repository/Android_Hosted/'}
+//        maven { url 'http://10.130.132.94:8081/repository/Android_Hosted/'}
         maven { url 'https://dl.google.com/dl/android/maven2/' }
         maven { url 'https://dl.bintray.com/guardian/android' }
         maven { url "https://jitpack.io" }

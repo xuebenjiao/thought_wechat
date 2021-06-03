@@ -137,6 +137,5 @@ dependencies {
     implementation project(path:":network")
     implementation "androidx.startup:startup-runtime:1.0.0-alpha01"
     implementation 'com.android.support:multidex:1.0.1'
-//    implementation 'com.github.shegang:ytoCommonAlert:1.2.5'
 
 }
